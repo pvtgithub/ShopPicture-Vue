@@ -1,0 +1,176 @@
+{
+    "imagesVi": [
+      {
+        "id": 1,
+        "name": "Hình ảnh 1",
+        "description": "Mô tả hình ảnh 1",
+        "content": "Nội dung hình ảnh 1",
+        "price": 100,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Hình ảnh 2",
+        "description": "Mô tả hình ảnh 2",
+        "content": "Nội dung hình ảnh 2",
+        "price": 200,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Hình ảnh 3",
+        "description": "Mô tả hình ảnh 3",
+        "content": "Nội dung hình ảnh 3",
+        "price": 300,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Hình ảnh 4",
+        "description": "Mô tả hình ảnh 4",
+        "content": "Nội dung hình ảnh 4",
+        "price": 400,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Hình ảnh 5",
+        "description": "Mô tả hình ảnh 5",
+        "content": "Nội dung hình ảnh 5",
+        "price": 500,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Hình ảnh 6",
+        "description": "Mô tả hình ảnh 6",
+        "content": "Nội dung hình ảnh 6",
+        "price": 600,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Hình ảnh 7",
+        "description": "Mô tả hình ảnh 7",
+        "content": "Nội dung hình ảnh 7",
+        "price": 700,
+        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      }
+    ],
+    "imagesEn": [
+        {
+          "id": 1,
+          "name": "Picture 1",
+          "description": "Picture Description 1",
+          "content": "Picture Content 1",
+          "price": 100,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Picture 2",
+          "description": "Picture Description 2",
+          "content": "Picture Content 2",
+          "price": 200,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Picture 3",
+          "description": "Picture Description 3",
+          "content": "Picture Content 3",
+          "price": 300,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 4,
+          "name": "Picture 4",
+          "description": "Picture Description 4",
+          "content": "Picture Content 4",
+          "price": 400,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 5,
+          "name": "Picture 5",
+          "description": "Picture Description 5",
+          "content": "Picture Content 5",
+          "price": 500,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Picture 6",
+          "description": "Picture Description 6",
+          "content": "Picture Content 6",
+          "price": 600,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 7,
+          "name": "Picture 7",
+          "description": "Picture Description 7",
+          "content": "Picture Content 7",
+          "price": 700,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        }
+      ],
+      "imagesJp": [
+        {
+          "id": 1,
+          "name": "画像 1",
+          "description": "画像の説明 1",
+          "content": "画像コンテンツ 1",
+          "price": 100,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 2,
+          "name": "画像 2",
+          "description": "画像の説明 2",
+          "content": "画像コンテンツ 2",
+          "price": 200,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 3,
+          "name": "画像 3",
+          "description": "画像の説明 3",
+          "content": "画像コンテンツ 3",
+          "price": 300,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 4,
+          "name": "画像 4",
+          "description": "画像の説明 4",
+          "content": "画像コンテンツ 4",
+          "price": 400,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 5,
+          "name": "画像 5",
+          "description": "画像の説明 5",
+          "content": "画像コンテンツ 5",
+          "price": 500,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 6,
+          "name": "画像 6",
+          "description": "画像の説明 6",
+          "content": "画像コンテンツ 6",
+          "price": 600,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        },
+        {
+          "id": 7,
+          "name": "画像 7",
+          "description": "画像の説明 7",
+          "content": "画像コンテンツ 7",
+          "price": 700,
+          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+        }
+      ]
+  }
