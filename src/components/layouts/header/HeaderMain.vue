@@ -5,7 +5,7 @@
             <el-col :lg="3" :xs="24" :md="5">
                 <img class="header__main__logo" src="../../../../public/images/logo.png" />
             </el-col>
-            <el-col :lg="9" :xs="24" :md="11"  class="header__main__center">
+            <el-col :lg="9" :xs="24" :md="11" class="header__main__center">
                 <el-input v-model="searchValue" :placeholder="placeholderInput" class="input-with-select">
                     <template #prepend>
                         <el-select v-model="selectValue" :placeholder="placeholderSelect" style="width: 115px">
@@ -24,21 +24,22 @@
                 </el-input>
             </el-col>
             <el-col :lg="4" :xs="24" :md="24" class="header__main__center">
-                <router-link to="/b">
-                    <lg>{{ textHobby }}
-                        <el-icon>
-                            <Grape />
+                <el-badge :value="12" class="item header__main__hobby">
+                    <el-button>{{ textHobby }}
+                        <el-icon size="20">
+                            <View/>
                         </el-icon>
-                    </lg>
-                </router-link>
+                    </el-button>
+                </el-badge>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <router-link to="/a">
-                    <lg>{{ textCart }}
-                        <el-icon>
-                            <ShoppingCartFull />
+                <el-badge :value="12" class="item header__main__cart">
+                    <el-button>{{ textCart }}
+                        <el-icon size="20">
+                            <ShoppingCart/>
                         </el-icon>
-                    </lg>
-                </router-link>
+                    </el-button>
+                    <Cart class="cart"/>
+                </el-badge>
             </el-col>
             <el-col :lg="4" :md="4"></el-col>
 
@@ -49,44 +50,48 @@
 import { defineComponent } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 import store from '@/store/LanguageStore'
+import Cart from '@/components/header/Cart.vue'
 export default defineComponent({
     name: "HeaderMain",
+    components: {
+        Cart
+    },
     data() {
         return {
             input_search: "",
             placeholderSelect: "",
-            placeholderInput : "",
-            textHobby : "",
-            textCart : "",
-            languageValue : 1,
-            searchValue : "",
-            selectValue : "",
+            placeholderInput: "",
+            textHobby: "",
+            textCart: "",
+            languageValue: 1,
+            searchValue: "",
+            selectValue: "",
         }
     },
     methods: {
-        changeLanguage(){
+        changeLanguage() {
             switch (this.languageValue) {
-                    case 1:
-                        this.placeholderSelect = "Thể loại"
-                        this.placeholderInput = "Nhập từ khóa để tìm kiếm..."
-                        this.textHobby = "Ưa thích"
-                        this.textCart = "Giỏ hàng"
-                        break;
-                    case 2:
-                        this.placeholderSelect = "Category"
-                        this.placeholderInput = "Please input syntax for search..."
-                        this.textHobby = "Hobby"
-                        this.textCart = "Cart"
-                        break;
-                    case 3:
-                        this.placeholderSelect = "カテゴリー"
-                        this.placeholderInput = "キーワードを入力して検索..."
-                        this.textHobby = "興味"
-                        this.textCart = "カート"
-                        break;
-                    default:
-                        break;
-                }
+                case 1:
+                    this.placeholderSelect = "Thể loại"
+                    this.placeholderInput = "Nhập từ khóa để tìm kiếm..."
+                    this.textHobby = "Ưa thích"
+                    this.textCart = "Giỏ hàng"
+                    break;
+                case 2:
+                    this.placeholderSelect = "Category"
+                    this.placeholderInput = "Please input syntax for search..."
+                    this.textHobby = "Hobby"
+                    this.textCart = "Cart"
+                    break;
+                case 3:
+                    this.placeholderSelect = "カテゴリー"
+                    this.placeholderInput = "キーワードを入力して検索..."
+                    this.textHobby = "興味"
+                    this.textCart = "カート"
+                    break;
+                default:
+                    break;
+            }
         }
     },
     mounted() {
@@ -129,5 +134,13 @@ export default defineComponent({
 
 .input-with-select .el-input-group__prepend {
     background-color: var(--el-fill-color-blank);
+}
+.header__main__cart{
+    position: relative;
+}
+.cart {
+    position: absolute;
+    width: 350px;
+    z-index: 100;
 }
 </style>

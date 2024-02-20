@@ -10,7 +10,7 @@
                     <span>{{ (item as any).name }}</span>
                     <div class="bottom">
                         <p class="time">{{ (item as any).description }}</p>
-                        <p>{{ textPrice }}: {{ (item as any).price }} <el-button type="success" class="button">Mua ngay</el-button></p>
+                        <p>{{ textPrice }}: {{ (item as any).price }} <el-button @click="addToCart((item as any).id)" type="success" class="button">Mua ngay</el-button></p>
                     </div>
                 </div>
             </el-card>
@@ -48,6 +48,11 @@ export default defineComponent({
         async getAllPicture(language : number) {
             const {data} = await pictureService.getAll(language)
             this.products = data
+        },
+        addToCart(id : number) {
+            store.dispatch('addToCart', id)
+            console.log(store.state.cart);
+            
         }
     },
     mounted() {

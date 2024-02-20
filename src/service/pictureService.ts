@@ -11,5 +11,8 @@ export default {
             resource = "/imagesJp"
         }
         return Repository.get(`${resource}`)
+    },
+    getPictureById(id : number){
+        return Repository.get(`/imagesVi/${id}`)
     }
 }
