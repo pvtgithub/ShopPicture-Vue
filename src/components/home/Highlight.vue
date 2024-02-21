@@ -51,8 +51,6 @@ export default defineComponent({
         },
         addToCart(id : number) {
             store.dispatch('addToCart', id)
-            console.log(store.state.cart);
-            
         }
     },
     mounted() {

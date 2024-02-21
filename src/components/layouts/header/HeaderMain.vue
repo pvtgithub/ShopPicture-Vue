@@ -32,13 +32,13 @@
                     </el-button>
                 </el-badge>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <el-badge :value="12" class="item header__main__cart">
-                    <el-button>{{ textCart }}
+                <el-badge :value="quantityItemCart" class="item header__main__cart">
+                    <el-button @click="displayCart()">{{ textCart }}
                         <el-icon size="20">
                             <ShoppingCart/>
                         </el-icon>
                     </el-button>
-                    <Cart class="cart"/>
+                    <Cart v-if="cartDisplay" class="cart" @closeCart="displayCart()"/>
                 </el-badge>
             </el-col>
             <el-col :lg="4" :md="4"></el-col>
@@ -58,6 +58,7 @@ export default defineComponent({
     },
     data() {
         return {
+            cartDisplay: false,
             input_search: "",
             placeholderSelect: "",
             placeholderInput: "",
@@ -69,6 +70,9 @@ export default defineComponent({
         }
     },
     methods: {
+        displayCart() {
+            this.cartDisplay = !this.cartDisplay
+        },
         changeLanguage() {
             switch (this.languageValue) {
                 case 1:
@@ -92,6 +96,15 @@ export default defineComponent({
                 default:
                     break;
             }
+        }
+    },
+    computed : {
+        quantityItemCart () {
+            let quantity = 0
+            store.state.cart.products.forEach(element => {
+                quantity += element.quantity
+            });
+            return quantity
         }
     },
     mounted() {

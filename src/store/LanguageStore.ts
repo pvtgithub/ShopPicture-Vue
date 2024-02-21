@@ -1,11 +1,16 @@
 import { createStore } from 'vuex'
 import pictureService from '@/service/pictureService';
 
-interface Product {
-  id: number,
+export interface Product {
+  id: number
+  name: string
+  description: string
+  content: string
+  price: number
+  image: string
   quantity: number
 }
-interface Cart {
+export interface Cart {
   products: Product[],
   sumPrice: number
 }
@@ -37,15 +42,16 @@ export default createStore<{ language: number, cart: Cart }>({
           dispatch('sumPriceProduct')
         }
       });
-      if(!found){
-        const product = {
-          id: id,
-          quantity: 1
-        }
-        state.cart.products.push(product);
-        dispatch('sumPriceProduct')
+      if (!found) {
+        pictureService.getPictureById(id).then((res) => {
+          const product: Product = res.data;
+          product.quantity = 1;
+          
+          state.cart.products.push(product);
+          dispatch('sumPriceProduct')
+        })
       }
-      
+
     },
     sumPriceProduct({ commit, state }) {
       let sumPrice = 0;

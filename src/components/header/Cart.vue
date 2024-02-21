@@ -7,40 +7,76 @@
             <el-col :span="5"><strong style="font-size: 12px">Số lượng</strong></el-col>
             <el-col :span="5"><strong style="font-size: 12px">Tổng giá</strong></el-col>
         </el-row>
-        <el-divider style="margin: 0"></el-divider>
-        <el-row class="item_product">
-            <el-col :span="7">
-                <div class="img_product">
-                    <el-icon>
-                        <CloseBold />
-                    </el-icon>
-                    <img style="width: 50px; height: 50px"
-                        src="https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg" />
+        <template v-for="(item, index) in cart.products" :key="index">
+            <el-divider style="margin: 0"></el-divider>
+            <el-row class="item_product">
+                <el-col :span="7">
+                    <div class="img_product">
+                        <el-icon>
+                            <CloseBold />
+                        </el-icon>
+                        <img style="width: 50px; height: 50px"
+                            src="https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg" />
 
-                </div>
-            </el-col>
-            <el-col :span="7">
-                <span class="text_item">Tên sản phẩm</span>
-            </el-col>
-            <el-col :span="5">
-                <span class="text_item">3</span>
-            </el-col>
-            <el-col :span="5">
-                <span class="text_item">300</span>
-            </el-col>
-        </el-row>
+                    </div>
+                </el-col>
+                <el-col :span="7">
+                    <span class="text_item">{{ item.name }}</span>
+                </el-col>
+                <el-col :span="5">
+                    <span class="text_item">{{ item.quantity }}</span>
+                </el-col>
+                <el-col :span="5">
+                    <span class="text_item">{{ item.price * item.quantity }}</span>
+                </el-col>
+            </el-row>
+        </template>
 
         <el-divider style="margin: 0"></el-divider>
         <div class="cart_footer">
-            <el-button type="danger">Đóng</el-button>
-            <el-button type="primary">Thanh toán</el-button>
+            <h3>Tổng tiền: {{ cart.sumPrice }}$</h3>
+            <el-button @click="closeCart()" type="danger">Đóng</el-button>
+            <el-button type="primary" >Thanh toán</el-button>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import store from '@/store/LanguageStore'
+import { Cart } from '@/store/LanguageStore'
+
 export default defineComponent({
-    name: "CartComponent"
+    name: "CartComponent",
+    data() {
+        return {
+            cart: {
+                products: [],
+                sumPrice: 0
+            } as Cart,
+        }
+    },
+    methods: {
+        closeCart() {
+            this.$emit('closeCart')
+        }
+    },
+    computed: {
+        cartStore() {
+            return store.state.cart
+        }
+    },
+    mounted() {
+        this.cart = this.cartStore
+
+        store.watch(
+            state => state.cart,
+            newValue => {
+                this.cart = this.cartStore
+
+            },
+            { deep: true }
+        )
+    }
 })
 </script>
 <style lang="css">
@@ -51,20 +87,24 @@ export default defineComponent({
     background-color: white;
     font-family: monospace;
 }
-.item_product{
+
+.item_product {
     display: flex;
     align-items: center;
 }
+
 .img_product {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
 }
-.text_item{
+
+.text_item {
     font-size: 13px;
 }
-.cart_footer{
+
+.cart_footer {
     text-align: right;
     padding: 10px
 }
