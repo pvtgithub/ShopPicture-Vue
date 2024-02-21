@@ -12,7 +12,7 @@
             <el-row class="item_product">
                 <el-col :span="7">
                     <div class="img_product">
-                        <el-icon>
+                        <el-icon @click="removeItem(item.id)">
                             <CloseBold />
                         </el-icon>
                         <img style="width: 50px; height: 50px"
@@ -58,6 +58,9 @@ export default defineComponent({
     methods: {
         closeCart() {
             this.$emit('closeCart')
+        },
+        removeItem(id : number) {
+            store.dispatch('removeItem', id)
         }
     },
     computed: {
@@ -72,7 +75,6 @@ export default defineComponent({
             state => state.cart,
             newValue => {
                 this.cart = this.cartStore
-
             },
             { deep: true }
         )

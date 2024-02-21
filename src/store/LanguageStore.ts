@@ -46,24 +46,36 @@ export default createStore<{ language: number, cart: Cart }>({
         pictureService.getPictureById(id).then((res) => {
           const product: Product = res.data;
           product.quantity = 1;
-          
+
           state.cart.products.push(product);
           dispatch('sumPriceProduct')
         })
       }
 
     },
+    removeItem({ state, dispatch }, id: number) {
+      const index = state.cart.products.findIndex(ele => ele.id === id)
+
+      if (index !== -1) {
+        state.cart.products.splice(index, 1)
+        dispatch('sumPriceProduct')
+      }
+    },
     sumPriceProduct({ commit, state }) {
-      let sumPrice = 0;
-      state.cart.products.forEach(element => {
-        pictureService.getPictureById(element.id).then((res) => {
-          const priceProduct = res.data.price * element.quantity;
-          sumPrice += priceProduct;
-          commit('setSumPrice', sumPrice)
-        }).catch((e) => {
-          throw new e;
+      if (state.cart.products.length == 0) {
+        commit('setSumPrice', 0)
+      } else {
+        let sumPrice = 0;
+        state.cart.products.forEach(element => {
+          pictureService.getPictureById(element.id).then((res) => {
+            const priceProduct = res.data.price * element.quantity;
+            sumPrice += priceProduct;
+            commit('setSumPrice', sumPrice)
+          }).catch((e) => {
+            throw new e;
+          })
         })
-      })
+      }
     }
   }
 })

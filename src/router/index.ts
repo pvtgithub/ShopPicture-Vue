@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/:catchAll(.*)',
-    component: HomeView
+    component: PageNotFound
   }
 ]
 

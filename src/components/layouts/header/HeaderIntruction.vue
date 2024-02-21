@@ -131,4 +131,5 @@ nav a {
     font-size: var(--fontsize-small);
     color: var(--color-text);
     font-weight: 100;
+    display: inline-block;
 }</style>
