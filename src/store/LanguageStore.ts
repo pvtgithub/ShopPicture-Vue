@@ -1,19 +1,7 @@
 import { createStore } from 'vuex'
 import pictureService from '@/service/pictureService';
-
-export interface Product {
-  id: number
-  name: string
-  description: string
-  content: string
-  price: number
-  image: string
-  quantity: number
-}
-export interface Cart {
-  products: Product[],
-  sumPrice: number
-}
+import { Product } from '@/interface/Product';
+import { Cart } from '@/interface/Cart';
 
 export default createStore<{ language: number, cart: Cart }>({
   state: {

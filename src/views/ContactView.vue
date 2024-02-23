@@ -115,7 +115,8 @@
                             </el-form-item>
                             <el-form-item>
                                 <el-button @click="$router.push('/')">Cancel</el-button>
-                                <el-button type="primary" @click="sendEmail(ruleFormRef)">Gửi mail</el-button>
+                                <el-button :loading="submitLoadingButton" type="primary" @click="sendEmail(ruleFormRef)">Gửi
+                                    mail</el-button>
                             </el-form-item>
                         </el-form>
 
@@ -142,25 +143,21 @@
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus'
+import RuleFormType from '@/interface/RuleFormType'
 
-interface RuleForm {
-    email: string,
-    phone: string,
-    subject: string,
-    body: string
-}
+const submitLoadingButton = ref(false)
 
 const activeNames = ref(['1'])
 
 const ruleFormRef = ref<FormInstance>()
-const ruleForm = reactive<RuleForm>({
+const ruleForm = reactive<RuleFormType>({
     email: '',
     phone: '',
     subject: '',
     body: ''
 })
-const rules = reactive<FormRules<RuleForm>>({
+const rules = reactive<FormRules<RuleFormType>>({
     email: [
         { required: true, message: 'Email không được để trống', trigger: 'blur' },
         { min: 3, max: 30, message: 'Chiều dài từ 3 -> 30 ký tự', trigger: 'blur' },
@@ -175,25 +172,50 @@ const rules = reactive<FormRules<RuleForm>>({
     ],
     body: [
         { required: true, message: 'Nội dung không được để trống', trigger: 'blur' },
-        { min: 10, max: 500, message: 'Chiều dài từ 10 -> 500 ký tự', trigger: 'blur' },
+        { min: 10, max: 2000, message: 'Chiều dài từ 10 -> 2000 ký tự', trigger: 'blur' },
     ]
 })
+
+const openNotificationEmail = () => {
+    ElMessageBox.alert(
+        'Cảm ơn bạn đã liên hệ chúng tôi',
+        'Gửi mail thành công!',
+        {
+            confirmButtonText: 'OK',
+            type: 'success',
+        }
+    ).then(() => {
+        ElMessage({
+            type: 'success',
+            message: 'Gửi mail thành công!',
+        })
+        ruleForm.email = ''
+        ruleForm.phone = ''
+        ruleForm.subject = ''
+        ruleForm.body = ''
+    })
+}
 const sendEmail = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate((valid) => {
+
         if (valid) {
-            let subject = 'From Email: ' + ruleForm.email + ' ' + 'Phone Number: ' + ruleForm.phone + ' ' + ruleForm.subject;
-            (window as any).Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: "phanvantho@luvina.net",
-                Password: "398DA43AC04126ECF67955211269C3422E7A",
-                To: 'phanvantho@luvina.net',
-                From: 'phanvantho@luvina.net',
-                Subject: subject,
-                Body: ruleForm.body
-            }).then(
-                (message: any) => alert(message)
-            );
+            submitLoadingButton.value = true
+            setTimeout(() => {
+                let subject = ruleForm.subject + ' | From Email: ' + ruleForm.email + ' ' + 'Phone Number: ' + ruleForm.phone;
+                (window as any).Email.send({
+                    Host: "smtp.elasticemail.com",
+                    Username: "phanvantho@luvina.net",
+                    Password: "398DA43AC04126ECF67955211269C3422E7A",
+                    To: 'phanvantho@luvina.net',
+                    From: 'phanvantho@luvina.net',
+                    Subject: subject,
+                    Body: ruleForm.body
+                }).then(
+                    openNotificationEmail()
+                );
+                submitLoadingButton.value = false
+            }, 1000);
         } else {
             console.log('error submit!')
             return false
@@ -206,7 +228,6 @@ const sendEmail = (formEl: FormInstance | undefined) => {
 import { defineComponent } from 'vue'
 import FooterMain from '@/components/layouts/footer/FooterMain.vue';
 import FooterTop from '@/components/layouts/footer/FooterTop.vue';
-import axios from 'axios'
 
 export default defineComponent({
     name: 'ContactView',

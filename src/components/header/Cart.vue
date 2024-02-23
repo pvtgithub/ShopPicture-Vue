@@ -42,14 +42,14 @@
         <div class="cart_footer">
             <h3>Tổng tiền: {{ cart.sumPrice }}$</h3>
             <el-button @click="closeCart()" type="danger">Đóng</el-button>
-            <el-button type="primary">Thanh toán</el-button>
+            <el-button type="primary" @click="$router.push('/checkout')">Thanh toán</el-button>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import store from '@/store/LanguageStore'
-import { Cart } from '@/store/LanguageStore'
+import { Cart } from '@/interface/Cart'
 import { ElMessage } from 'element-plus'
 import { InfoFilled } from '@element-plus/icons-vue'
 

@@ -9,12 +9,12 @@
                         </div>
                         <div class="contant_box_404">
                             <h3 class="h2">
-                                Look like you're lost
+                                Không tìm thấy trang
                             </h3>
 
-                            <p>the page you are looking for not avaible!</p>
+                            <p>Trang bạn truy cập không khả dụng!</p>
 
-                            <a href="" class="link_404">Go to Home</a>
+                            <router-link to="/" class="link_404">Quay về trang chủ</router-link>
                         </div>
                     </div>
                 </div>

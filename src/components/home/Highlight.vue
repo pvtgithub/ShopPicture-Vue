@@ -5,7 +5,7 @@
     <el-row>
         <el-col :lg="6" :md="8" :sm="12" :xs="24" v-for="item in products" :key="(item as any).id"
             class="home__highlight__item">
-            <el-card :body-style="{ padding: '0px' }">
+            <el-card :body-style="{ padding: '0px' }" @click="productDetail((item as any).id)">
                 <img style="width: 100% ; height: auto" :src="(item as any).image" class="image" />
                 <div style="padding: 14px">
                     <span>{{ (item as any).name }}</span>
@@ -35,6 +35,7 @@ import { defineComponent } from 'vue'
 import store from '@/store/LanguageStore'
 import pictureService from '@/service/pictureService'
 import { ElMessage } from 'element-plus';
+import router from '@/router';
 
 export default defineComponent({
     name: 'HomeHighlight',
@@ -80,6 +81,13 @@ export default defineComponent({
                 this.checkLoading = false
                 this.checkButtonId = -1
             }, 500);
+        },
+        productDetail(id : number){
+            if(this.checkLoading == true) {
+                return
+            }else{
+            router.push('/detail/'+id)
+            }
         }
     },
     mounted() {

@@ -5,7 +5,9 @@ import AboutView from '../views/AboutView.vue'
 import ContactView from '../views/ContactView.vue'
 import MapView from '../views/MapView.vue'
 import RecruitmentView from '../views/RecruitmentView.vue'
-import { ElLoading, roleTypes } from 'element-plus'
+import ProductDetailView from '../views/ProductDetailView.vue'
+import CheckoutView from '../views/CheckoutView.vue'
+import { ElLoading } from 'element-plus'
 import test from '../views/test.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -34,6 +36,17 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tuyen-dung',
     name: 'Recruitment',
     component: RecruitmentView
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: CheckoutView
+  },
+  {
+    path: '/detail/:productId',
+    name: 'Detail',
+    component: ProductDetailView,
+    props: true,
   },
   {
     path: '/dang-tranh',
