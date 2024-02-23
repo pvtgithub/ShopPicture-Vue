@@ -129,6 +129,10 @@ export default defineComponent({
     color: gray
 }
 
+.introduct__item__bottom p{
+    line-height: 1.3;
+}
+
 .dark__mode .introduct__item__top,
 .dark__mode .introduct__item__bottom {
     color: var(--color-text);

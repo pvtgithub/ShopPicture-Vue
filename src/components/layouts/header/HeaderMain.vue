@@ -26,8 +26,8 @@
             <el-col :lg="4" :xs="24" :md="24" class="header__main__center">
                 <el-badge :value="12" class="item header__main__hobby">
                     <el-button>{{ textHobby }}
-                        <el-icon size="20">
-                            <View/>
+                        <el-icon size="20" style="margin-left: 5px;">
+                            <View />
                         </el-icon>
                     </el-button>
                 </el-badge>
@@ -35,10 +35,10 @@
                 <el-badge :value="quantityItemCart" class="item header__main__cart">
                     <el-button @click="displayCart()">{{ textCart }}
                         <el-icon size="20">
-                            <ShoppingCart/>
+                            <ShoppingCart />
                         </el-icon>
                     </el-button>
-                    <Cart v-if="cartDisplay" class="cart" @closeCart="displayCart()"/>
+                    <Cart v-if="cartDisplay" class="cart" @closeCart="displayCart()" />
                 </el-badge>
             </el-col>
             <el-col :lg="4" :md="4"></el-col>
@@ -98,8 +98,8 @@ export default defineComponent({
             }
         }
     },
-    computed : {
-        quantityItemCart () {
+    computed: {
+        quantityItemCart() {
             let quantity = 0
             store.state.cart.products.forEach(element => {
                 quantity += element.quantity
@@ -117,6 +117,14 @@ export default defineComponent({
                 this.languageValue = newValue
                 this.changeLanguage()
             }
+        )
+
+        store.watch(
+            state => state.cart,
+            () => {
+                this.cartDisplay = true
+            },
+            { deep: true }
         )
     }
 })
@@ -148,12 +156,17 @@ export default defineComponent({
 .input-with-select .el-input-group__prepend {
     background-color: var(--el-fill-color-blank);
 }
-.header__main__cart{
+
+.header__main__cart {
     position: relative;
 }
+
 .cart {
     position: absolute;
     width: 350px;
     z-index: 100;
+}
+.header__main__hobby .el-icon{
+    margin-left: 5px;
 }
 </style>

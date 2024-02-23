@@ -9,8 +9,15 @@
     <footer>
       <FooterComponent />
     </footer>
+    <a href="tel:0348485360" class="call">
+    </a>
+    <div class="zalo-chat-widget" data-oaid="1183967342950239704" data-welcome-message="Rất vui khi được hỗ trợ bạn!"
+      data-autopopup="0" data-width="350" data-height="420">
+    </div>
+
   </div>
 </template>
+
 <script lang="ts">
 import HeaderComponent from './components/layouts/header/Header.vue';
 import FooterComponent from './components/layouts/footer/Footer.vue';
@@ -75,40 +82,56 @@ a.router-link-exact-active {
   animation-name: gradually;
   animation-duration: 0.3s;
 }
-.dark__mode footer{
+
+.dark__mode footer {
   color: var(--color-text);
 }
 
+.call {
+  position: fixed;
+  bottom: 120px;
+  right: 50px;
+  height: 60px;
+  width: 60px;
+  background-image: url(../public/images/call.png);
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+}
+
 @keyframes gradually {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    15% {
-        opacity: 0.15;
-    }
+  15% {
+    opacity: 0.15;
+  }
 
-    30% {
-        opacity: 0.3;
-    }
+  30% {
+    opacity: 0.3;
+  }
 
-    45% {
-        opacity: 0.45;
-    }
-    60% {
-        opacity: 0.6;
-    }
+  45% {
+    opacity: 0.45;
+  }
 
-    75% {
-        opacity: 0.75;
-    }
+  60% {
+    opacity: 0.6;
+  }
 
-    90% {
-        opacity: 0.9;
-    }
+  75% {
+    opacity: 0.75;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  90% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 </style>

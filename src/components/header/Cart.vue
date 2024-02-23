@@ -12,9 +12,15 @@
             <el-row class="item_product">
                 <el-col :span="7">
                     <div class="img_product">
-                        <el-icon @click="removeItem(item.id)">
-                            <CloseBold />
-                        </el-icon>
+                        <el-popconfirm width="220" confirm-button-text="OK" cancel-button-text="Cancel" :icon="InfoFilled"
+                            icon-color="#626AEF" title="Xóa sản phẩm khỏi giỏ hàng?" @confirm="removeItem(item.id)">
+                            <template #reference>
+                                <el-icon>
+                                    <CloseBold />
+                                </el-icon>
+                            </template>
+                        </el-popconfirm>
+
                         <img style="width: 50px; height: 50px"
                             src="https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg" />
 
@@ -36,7 +42,7 @@
         <div class="cart_footer">
             <h3>Tổng tiền: {{ cart.sumPrice }}$</h3>
             <el-button @click="closeCart()" type="danger">Đóng</el-button>
-            <el-button type="primary" >Thanh toán</el-button>
+            <el-button type="primary">Thanh toán</el-button>
         </div>
     </div>
 </template>
@@ -44,6 +50,8 @@
 import { defineComponent } from 'vue'
 import store from '@/store/LanguageStore'
 import { Cart } from '@/store/LanguageStore'
+import { ElMessage } from 'element-plus'
+import { InfoFilled } from '@element-plus/icons-vue'
 
 export default defineComponent({
     name: "CartComponent",
@@ -59,9 +67,16 @@ export default defineComponent({
         closeCart() {
             this.$emit('closeCart')
         },
-        removeItem(id : number) {
+        removeItem(id: number) {
             store.dispatch('removeItem', id)
+
+            ElMessage({
+                showClose: true,
+                message: 'Đã xóa sản phẩm khỏi giỏ hàng.',
+                type: 'success',
+            })
         }
+
     },
     computed: {
         cartStore() {
