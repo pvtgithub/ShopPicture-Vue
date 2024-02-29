@@ -1,5 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  devServer: {
+    allowedHosts: 'all' // fix lỗi trên ngrok
+  },
   transpileDependencies: true,
   chainWebpack: (config) => {
     config.plugin('define').tap((definitions) => {

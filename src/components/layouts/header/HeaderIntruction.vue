@@ -42,6 +42,8 @@
                 <el-select v-model="languageValue" placeholder="Select" style="width: 120px">
                     <el-option v-for="item in languages" :key="item.id" :label="item.name" :value="item.id" />
                 </el-select>
+                &nbsp;
+                <BillDetailView/>
             </nav>
         </el-col>
         <el-col :span="4"></el-col>
@@ -49,11 +51,27 @@
 </template>
 <script lang="ts">
 import store from '@/store/LanguageStore'
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { ElLoading } from 'element-plus'
+import BillDetailView from '@/views/BillDetailView.vue'
 
 export default defineComponent({
     name: 'HeaderIntruction',
+    components: {
+        BillDetailView
+    },
+    setup() {
+        const outerVisible = ref(false);
+
+        const showDialog = () => {
+            outerVisible.value = true;
+        };
+
+        return {
+            outerVisible,
+            showDialog
+        };
+    },
     data() {
         return {
             isNavigating: false,

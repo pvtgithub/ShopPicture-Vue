@@ -6,12 +6,13 @@
         <el-col :lg="6" :md="8" :sm="12" :xs="24" v-for="item in products" :key="(item as any).id"
             class="home__highlight__item">
             <el-card :body-style="{ padding: '0px' }" @click="productDetail((item as any).id)">
-                <img style="width: 100% ; height: auto" :src="(item as any).image" class="image" />
+                <img style="width: 100% ; height: 250px"  :src="require('@/assets/tranh_son_dau/'+(item as any).image)" class="image" />
                 <div style="padding: 14px">
                     <span>{{ (item as any).name }}</span>
-                    <div class="bottom">
+                    <div class="bottom" style="text-align: left;">
                         <p class="time">{{ (item as any).description }}</p>
-                        <p>{{ textPrice }}: {{ (item as any).price }}
+                        <div>
+                            <p>{{ textPrice }}: {{ (item as any).price }} VNĐ</p>
                             <el-button type="success" class="button">
                                 <el-icon size="20">
                                     <View></View>
@@ -23,7 +24,7 @@
                                     <ShoppingCart></ShoppingCart>
                                 </el-icon>
                             </el-button>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </el-card>

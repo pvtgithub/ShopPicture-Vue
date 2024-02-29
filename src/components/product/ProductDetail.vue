@@ -3,7 +3,7 @@
         <el-col class="item" :xl="10" :sm="24">
             <el-carousel :interval="5000" arrow="always">
                 <el-carousel-item>
-                    <img :src="productDetail.image" />
+                    <img :src="require(`@/assets/tranh_son_dau/${productDetail.image}`)" />
                 </el-carousel-item>
             </el-carousel>
         </el-col>
@@ -66,7 +66,15 @@ export default defineComponent({
     props: ['productId'],
     data() {
         return {
-            productDetail: {} as Product,
+            productDetail: {
+                id: 1,
+                name: '',
+                description: '',
+                content: '',
+                price: 1,
+                image: 'tranh3.png',
+                quantity: 1
+            } as Product,
         }
     },
     methods: {
@@ -77,6 +85,8 @@ export default defineComponent({
     mounted() {
         this.getProductById(this.productId).then((res) => {
             this.productDetail = res.data;
+            console.log(this.productDetail);
+
         }).catch((e) => {
             console.log(e.message);
         })
@@ -127,7 +137,7 @@ export default defineComponent({
     margin-top: 20%;
 }
 
-.product__detail .el-divider--horizontal{
+.product__detail .el-divider--horizontal {
     margin: 10px 0;
 }
 </style>

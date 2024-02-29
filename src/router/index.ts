@@ -7,6 +7,8 @@ import MapView from '../views/MapView.vue'
 import RecruitmentView from '../views/RecruitmentView.vue'
 import ProductDetailView from '../views/ProductDetailView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
+import CompleteView from '../views/CompleteView.vue'
+import BillDetailView from '../views/BillDetailView.vue'
 import { ElLoading } from 'element-plus'
 import test from '../views/test.vue'
 
@@ -41,6 +43,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/checkout',
     name: 'Checkout',
     component: CheckoutView
+  },
+  {
+    path: '/complete',
+    name: 'Complete',
+    component: CompleteView
+  },
+  {
+    path: '/bill-detail',
+    name: 'BillDetail',
+    component: BillDetailView
   },
   {
     path: '/detail/:productId',

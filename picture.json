@@ -1,176 +1,339 @@
 {
-    "imagesVi": [
-      {
-        "id": 1,
-        "name": "Hình ảnh 1",
-        "description": "Mô tả hình ảnh 1",
-        "content": "Nội dung hình ảnh 1",
-        "price": 100,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+  "payment": [],
+  "bills": [
+    {
+      "customer": {
+        "name": "phanvantho",
+        "address": "114 Bình an7 - Phường Hòa Cường Bắc - Quận Hải Châu - Đà Nẵng",
+        "phone": "0348485360",
+        "email": "phanvantho@gmail.com",
+        "note": "không có ghi chú gì"
       },
-      {
-        "id": 2,
-        "name": "Hình ảnh 2",
-        "description": "Mô tả hình ảnh 2",
-        "content": "Nội dung hình ảnh 2",
-        "price": 200,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 186719,
+        "cash": false
       },
-      {
-        "id": 3,
-        "name": "Hình ảnh 3",
-        "description": "Mô tả hình ảnh 3",
-        "content": "Nội dung hình ảnh 3",
-        "price": 300,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      "id": 901202
+    },
+    {
+      "customer": {
+        "name": "phanvantho",
+        "address": "114 Bình an7 - Phường Hòa Cường Bắc - Quận Hải Châu - Đà Nẵng",
+        "phone": "0348485360",
+        "email": "phanvantho@gmail.com",
+        "note": "không có ghi chú gì"
       },
-      {
-        "id": 4,
-        "name": "Hình ảnh 4",
-        "description": "Mô tả hình ảnh 4",
-        "content": "Nội dung hình ảnh 4",
-        "price": 400,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 186719,
+        "cash": false
       },
-      {
-        "id": 5,
-        "name": "Hình ảnh 5",
-        "description": "Mô tả hình ảnh 5",
-        "content": "Nội dung hình ảnh 5",
-        "price": 500,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      "id": 126485
+    },
+    {
+      "customer": {
+        "name": "aaa",
+        "address": "1111 - Xã Mễ Sở - Huyện Văn Giang - Hưng Yên",
+        "phone": "1111",
+        "email": "1111",
+        "note": "1111"
       },
-      {
-        "id": 6,
-        "name": "Hình ảnh 6",
-        "description": "Mô tả hình ảnh 6",
-        "content": "Nội dung hình ảnh 6",
-        "price": 600,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
+      "details": {
+        "products": [
+          {
+            "product_id": 3,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 1539716,
+        "cash": false
       },
-      {
-        "id": 7,
-        "name": "Hình ảnh 7",
-        "description": "Mô tả hình ảnh 7",
-        "content": "Nội dung hình ảnh 7",
-        "price": 700,
-        "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-      }
-    ],
-    "imagesEn": [
-        {
-          "id": 1,
-          "name": "Picture 1",
-          "description": "Picture Description 1",
-          "content": "Picture Content 1",
-          "price": 100,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 2,
-          "name": "Picture 2",
-          "description": "Picture Description 2",
-          "content": "Picture Content 2",
-          "price": 200,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 3,
-          "name": "Picture 3",
-          "description": "Picture Description 3",
-          "content": "Picture Content 3",
-          "price": 300,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 4,
-          "name": "Picture 4",
-          "description": "Picture Description 4",
-          "content": "Picture Content 4",
-          "price": 400,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 5,
-          "name": "Picture 5",
-          "description": "Picture Description 5",
-          "content": "Picture Content 5",
-          "price": 500,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 6,
-          "name": "Picture 6",
-          "description": "Picture Description 6",
-          "content": "Picture Content 6",
-          "price": 600,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 7,
-          "name": "Picture 7",
-          "description": "Picture Description 7",
-          "content": "Picture Content 7",
-          "price": 700,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        }
-      ],
-      "imagesJp": [
-        {
-          "id": 1,
-          "name": "画像 1",
-          "description": "画像の説明 1",
-          "content": "画像コンテンツ 1",
-          "price": 100,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 2,
-          "name": "画像 2",
-          "description": "画像の説明 2",
-          "content": "画像コンテンツ 2",
-          "price": 200,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 3,
-          "name": "画像 3",
-          "description": "画像の説明 3",
-          "content": "画像コンテンツ 3",
-          "price": 300,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 4,
-          "name": "画像 4",
-          "description": "画像の説明 4",
-          "content": "画像コンテンツ 4",
-          "price": 400,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 5,
-          "name": "画像 5",
-          "description": "画像の説明 5",
-          "content": "画像コンテンツ 5",
-          "price": 500,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 6,
-          "name": "画像 6",
-          "description": "画像の説明 6",
-          "content": "画像コンテンツ 6",
-          "price": 600,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        },
-        {
-          "id": 7,
-          "name": "画像 7",
-          "description": "画像の説明 7",
-          "content": "画像コンテンツ 7",
-          "price": 700,
-          "image": "https://bantranh.com/wp-content/uploads/2021/10/tranh-son-dau-1.jpg"
-        }
-      ]
-  }
+      "id": 207838
+    },
+    {
+      "customer": {
+        "name": "phanvantho",
+        "address": "1212121 - Xã Minh Hoà - Huyện Dầu Tiếng - Bình Dương",
+        "phone": "fffff",
+        "email": "phanvamtho@gmail.com",
+        "note": "ghi chú"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 395166,
+        "cash": false
+      },
+      "id": 282650
+    },
+    {
+      "customer": {
+        "name": "phanvantho",
+        "address": "1212121 - Xã Minh Hoà - Huyện Dầu Tiếng - Bình Dương",
+        "phone": "fffff",
+        "email": "phanvamtho@gmail.com",
+        "note": "ghi chú"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 395166,
+        "cash": false
+      },
+      "id": 23583
+    },
+    {
+      "customer": {
+        "name": "phanvantho",
+        "address": "112 ffff - Phường Hòa Cường Bắc - Quận Hải Châu - Đà Nẵng",
+        "phone": "1233331222",
+        "email": "phanvantho@",
+        "note": "ggggggg"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 186719,
+        "cash": false
+      },
+      "id": 493745
+    },
+    {
+      "customer": {
+        "name": "ffff",
+        "address": "1212 - Xã Tam Đa - Huyện Phù Cừ - Hưng Yên",
+        "phone": "fdfsa",
+        "email": "fdfsd",
+        "note": "fdsfsd"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 395166,
+        "cash": false
+      },
+      "id": 962959
+    },
+    {
+      "customer": {
+        "name": "Phan Văn Thọ",
+        "address": "12121 - Xã Đắk Ruồng - Huyện Kon Rẫy - Kon Tum",
+        "phone": "2121",
+        "email": "2121",
+        "note": "21212"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 395166,
+        "cash": false
+      },
+      "id": 604210
+    }
+  ],
+  "imagesVi": [
+    {
+      "id": 1,
+      "name": "Hình ảnh 1",
+      "description": "Mô tả hình ảnh 1",
+      "content": "Nội dung hình ảnh 1",
+      "price": 11200,
+      "image": "tranh1.png"
+    },
+    {
+      "id": 2,
+      "name": "Hình ảnh 2",
+      "description": "Mô tả hình ảnh 2",
+      "content": "Nội dung hình ảnh 2",
+      "price": 2120000,
+      "image": "tranh2.png"
+    },
+    {
+      "id": 3,
+      "name": "Hình ảnh 3",
+      "description": "Mô tả hình ảnh 3",
+      "content": "Nội dung hình ảnh 3",
+      "price": 1150000,
+      "image": "tranh3.png"
+    },
+    {
+      "id": 4,
+      "name": "Hình ảnh 4",
+      "description": "Mô tả hình ảnh 4",
+      "content": "Nội dung hình ảnh 4",
+      "price": 1550000,
+      "image": "tranh4.png"
+    },
+    {
+      "id": 5,
+      "name": "Hình ảnh 5",
+      "description": "Mô tả hình ảnh 5",
+      "content": "Nội dung hình ảnh 5",
+      "price": 1855000,
+      "image": "tranh5.png"
+    },
+    {
+      "id": 6,
+      "name": "Hình ảnh 6",
+      "description": "Mô tả hình ảnh 6",
+      "content": "Nội dung hình ảnh 6",
+      "price": 2655000,
+      "image": "tranh6.png"
+    },
+    {
+      "id": 7,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png"
+    }
+  ],
+  "imagesEn": [
+    {
+      "id": 1,
+      "name": "Picture 1",
+      "description": "Picture Description 1",
+      "content": "Picture Content 1",
+      "price": 1120000,
+      "image": "tranh1.png"
+    },
+    {
+      "id": 2,
+      "name": "Picture 2",
+      "description": "Picture Description 2",
+      "content": "Picture Content 2",
+      "price": 2120000,
+      "image": "tranh2.png"
+    },
+    {
+      "id": 3,
+      "name": "Picture 3",
+      "description": "Picture Description 3",
+      "content": "Picture Content 3",
+      "price": 1150000,
+      "image": "tranh3.png"
+    },
+    {
+      "id": 4,
+      "name": "Picture 4",
+      "description": "Picture Description 4",
+      "content": "Picture Content 4",
+      "price": 1550000,
+      "image": "tranh4.png"
+    },
+    {
+      "id": 5,
+      "name": "Picture 5",
+      "description": "Picture Description 5",
+      "content": "Picture Content 5",
+      "price": 1855000,
+      "image": "tranh5.png"
+    },
+    {
+      "id": 6,
+      "name": "Picture 6",
+      "description": "Picture Description 6",
+      "content": "Picture Content 6",
+      "price": 2655000,
+      "image": "tranh6.png"
+    },
+    {
+      "id": 7,
+      "name": "Picture 7",
+      "description": "Picture Description 7",
+      "content": "Picture Content 7",
+      "price": 2155000,
+      "image": "tranh3.png"
+    }
+  ],
+  "imagesJp": [
+    {
+      "id": 1,
+      "name": "画像 1",
+      "description": "画像の説明 1",
+      "content": "画像コンテンツ 1",
+      "price": 1120000,
+      "image": "tranh1.png"
+    },
+    {
+      "id": 2,
+      "name": "画像 2",
+      "description": "画像の説明 2",
+      "content": "画像コンテンツ 2",
+      "price": 2120000,
+      "image": "tranh2.png"
+    },
+    {
+      "id": 3,
+      "name": "画像 3",
+      "description": "画像の説明 3",
+      "content": "画像コンテンツ 3",
+      "price": 1150000,
+      "image": "tranh3.png"
+    },
+    {
+      "id": 4,
+      "name": "画像 4",
+      "description": "画像の説明 4",
+      "content": "画像コンテンツ 4",
+      "price": 1550000,
+      "image": "tranh4.png"
+    },
+    {
+      "id": 5,
+      "name": "画像 5",
+      "description": "画像の説明 5",
+      "content": "画像コンテンツ 5",
+      "price": 1855000,
+      "image": "tranh5.png"
+    },
+    {
+      "id": 6,
+      "name": "画像 6",
+      "description": "画像の説明 6",
+      "content": "画像コンテンツ 6",
+      "price": 2655000,
+      "image": "tranh6.png"
+    },
+    {
+      "id": 7,
+      "name": "画像 7",
+      "description": "画像の説明 7",
+      "content": "画像コンテンツ 7",
+      "price": 2155000,
+      "image": "tranh3.png"
+    }
+  ]
+}
