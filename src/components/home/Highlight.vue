@@ -12,7 +12,7 @@
                     <div class="bottom" style="text-align: left;">
                         <p class="time">{{ (item as any).description }}</p>
                         <div>
-                            <p>{{ textPrice }}: {{ (item as any).price }} VNĐ</p>
+                            <p>{{ textPrice }}: {{ MainUtils.toCurrency((item as any).price) }} </p>
                             <el-button type="success" class="button">
                                 <el-icon size="20">
                                     <View></View>
@@ -31,6 +31,9 @@
         </el-col>
     </el-row>
 </template>
+<script lang="ts" setup>
+import { MainUtils } from '@/utils/MainUtils'
+</script>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import store from '@/store/LanguageStore'

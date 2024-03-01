@@ -33,6 +33,7 @@ export default defineComponent({
       darkMode: false
     }
   },
+  emits: ["darkMode"],
   methods: {
     handleDarkMode(darkMode: any) {
       this.darkMode = darkMode;

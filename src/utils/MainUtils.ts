@@ -1,18 +1,25 @@
-import router from "@/router";
+
 import { ElLoading } from "element-plus";
 export class MainUtils {
-    static loadNavigation(url: string) : string {
-        const loading = ElLoading.service({
-            lock: true,
-            text: 'Loading',
-            background: 'rgba(0, 0, 0, 0.7)',
-        })
-        setTimeout(() => {
-            loading.close()
-            return url
-        }, 2000)
+    public static toCurrency(value: number) {
+        const formatter = new Intl.NumberFormat('vi', {
+            style: 'currency',
+            currency: 'VND'
+        });
+        return formatter.format(value);
+    }
 
-        return url
+    static timeToDateTimeFormat(timestampInMilliseconds: number) {
+        const timestampInSeconds = timestampInMilliseconds / 1000;
+        const dateObject = new Date(timestampInSeconds * 1000);
+        const year = dateObject.getFullYear();
+        const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+        const day = String(dateObject.getDate()).padStart(2, '0');
+        const hours = String(dateObject.getHours()).padStart(2, '0');
+        const minutes = String(dateObject.getMinutes()).padStart(2, '0');
+        const seconds = String(dateObject.getSeconds()).padStart(2, '0');
 
+        const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        return formattedDate;
     }
 }

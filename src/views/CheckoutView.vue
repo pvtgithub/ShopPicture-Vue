@@ -41,7 +41,8 @@
                                 </td>
                                 <td><span class="text_item">{{ item.name }}</span></td>
                                 <td><span class="text_item">{{ item.quantity }}</span></td>
-                                <td> <span class="text_item">{{ item.price * item.quantity }}</span>$</td>
+                                <td> <span class="text_item">{{ MainUtils.toCurrency(item.price * item.quantity) }}</span>
+                                </td>
                             </tr>
                         </table>
                         <div class="delivery">
@@ -50,17 +51,18 @@
                                 <el-radio :label="2">Chuyển phát truyền thống</el-radio>
                                 <el-radio :label="5">Chuyển phát thương mại điện tử</el-radio>
                             </el-radio-group>
-                            <span v-if="deliveryService == 2">Phí vận chuyển (Chuyển phát truyền thống): {{ deliveryPrice
+                            <span v-if="deliveryService == 2">Phí vận chuyển (Chuyển phát truyền thống): {{
+                                MainUtils.toCurrency(deliveryPrice)
                             }}</span>
                             <span v-if="deliveryService == 5">Phí vận chuyển (Chuyển phát thương mại điện tử): {{
-                                deliveryPrice }}</span>
+                                MainUtils.toCurrency(deliveryPrice) }}</span>
 
                             <span v-if="!ruleForm?.ward" style="color: red;">Chọn địa chỉ để cập nhập giá giao hàng</span>
 
                         </div>
                         <div class="sum__bill">
                             <span>Tổng tiền</span>
-                            <span>{{ cart.sumPrice + deliveryPrice }}$</span>
+                            <span>{{ MainUtils.toCurrency(cart.sumPrice + deliveryPrice) }}</span>
                         </div>
                         <h3>Xác nhận thông tin</h3>
                         <p>Quý khách vui lòng điền đầy đủ thông tin để tiện cho việc giao hàng.</p>
@@ -117,8 +119,9 @@
                                         Khi thanh toán bằng tiền mặt nhân viên của cửa hàng sẽ liên hệ xác nhận đơn hàng và
                                         quý khách phải chuyển khoản trước 20% giá trị đơn hàng
                                     </p>
-                                    <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
-                                    <el-button type="primary" @click="submitForm(ruleFormRef, true)">
+                                    <el-button :disabled="disableButton" @click="resetForm(ruleFormRef)">Reset</el-button>
+                                    <el-button :loading="disableButton" type="primary"
+                                        @click="submitForm(ruleFormRef, true)">
                                         Đặt hàng
                                     </el-button>
                                 </el-tab-pane>
@@ -126,13 +129,17 @@
 
                                     <div class="item1">
                                         <h5>Quét mã QR</h5>
-                                        <img @click="paymentMomoCaptureWallet(ruleFormRef)"
-                                            src="../../public/images/atm_momo/momo.jpg" height="120" width="auto" />
+                                        <el-button width="200" height="110" :disabled="disableButton"
+                                            @click="paymentMomoCaptureWallet(ruleFormRef)">
+                                            <img src="../../public/images/atm_momo/momo.jpg" height="120" width="auto" />
+                                        </el-button>
                                     </div>
                                     <div class="item2">
                                         <h5>ATM</h5>
-                                        <img @click="paymentMomoAtm(ruleFormRef)" src="../../public/images/atm_momo/atm.jpg"
-                                            height="120" width="auto" />
+                                        <el-button width="200" height="110" :disabled="disableButton"
+                                            @click="paymentMomoAtm(ruleFormRef)">
+                                            <img src="../../public/images/atm_momo/atm.jpg" height="120" width="auto" />
+                                        </el-button>
                                     </div>
                                 </el-tab-pane>
                             </el-tabs>
@@ -169,8 +176,10 @@ import momoService from '@/service/momoService'
 import * as CryptoJS from 'crypto-js';
 import { InfoFilled } from '@element-plus/icons-vue';
 import ConstVariable from '../../const'
+import { ElMessageBox } from 'element-plus'
 
 const activeName = ref('first')
+const disableButton = ref(false)
 
 interface RuleForm {
     name: string
@@ -243,7 +252,7 @@ const payment = (typePayment: string, id_bill: number) => {
     const accessKey = 'klm05TvNBzhg7h7j';
     const secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
     const orderInfo = "Thanh toán đơn hàng của: " + ruleForm.name;
-    const amount = (store.state.cart.sumPrice).toString();
+    const amount = (store.state.cart.sumPrice + deliveryPrice.value).toString();
     const orderId = id_bill;
     const redirectUrl = ConstVariable.BASE_URL + "/complete";
     const ipnUrl = ConstVariable.BASE_URL_API;
@@ -279,35 +288,54 @@ const payment = (typePayment: string, id_bill: number) => {
 }
 const id_bill = ref(0)
 const paymentMomoCaptureWallet = async (formEl: FormInstance | undefined) => {
-    if (!formEl) return
+    disableButton.value = true
+    if (!formEl) {
+        disableButton.value = false
+        return
+    }
     await formEl.validate((valid, fields) => {
         if (valid) {
             submitForm(formEl, false)
             setTimeout(() => {
-                payment("captureWallet", id_bill.value)
+                if (checkNotExistBillAndStatusByPhone.value) {
+                    payment("captureWallet", id_bill.value)
+                }
             }, 500);
         } else {
+            disableButton.value = false
             console.log('error submit!', fields)
         }
     })
 }
 
 const paymentMomoAtm = async (formEl: FormInstance | undefined) => {
-    if (!formEl) return
+    disableButton.value = true
+    if (!formEl) {
+        disableButton.value = false
+        return
+    }
     await formEl.validate((valid, fields) => {
         if (valid) {
             submitForm(formEl, false)
             setTimeout(() => {
-                payment("payWithATM", id_bill.value)
+                if (checkNotExistBillAndStatusByPhone.value) {
+                    payment("payWithATM", id_bill.value)
+                }
             }, 500);
         } else {
+            disableButton.value = false
             console.log('error submit!', fields)
         }
     })
 }
+const checkNotExistBillAndStatusByPhone = ref(false)
 
 const submitForm = async (formEl: FormInstance | undefined, cash: boolean) => {
-    if (!formEl) return
+    disableButton.value = true
+    if (!formEl) {
+        disableButton.value = false
+        return
+    }
     await formEl.validate((valid, fields) => {
         if (valid) {
             const bill: Bill = {
@@ -321,7 +349,10 @@ const submitForm = async (formEl: FormInstance | undefined, cash: boolean) => {
                 "details": {
                     "products": [],
                     "sum_price": 0,
-                    "cash": false
+                    "delivery_price": 0,
+                    "total_price": 0,
+                    "cash": false,
+                    "status": 1
                 },
                 id: 0
             }
@@ -336,21 +367,34 @@ const submitForm = async (formEl: FormInstance | undefined, cash: boolean) => {
             });
 
             bill.details.products = products
-            bill.details.sum_price = cart.sumPrice + deliveryPrice.value
+            bill.details.sum_price = cart.sumPrice
+            bill.details.delivery_price = deliveryPrice.value
+            bill.details.total_price = cart.sumPrice + deliveryPrice.value
             bill.details.cash = cash
+            bill.details.status = 1
             bill.id = Math.floor(Math.random() * 1000000);
 
-            billService.postBill(bill).then((res) => {
-                if (cash) {
-                    ElMessageBox({
-                        title: 'THÔNG BÁO',
-                        message: h('h4', null, 'Bạn đã đặt hàng thành công!'),
-                        type: 'success'
+            billService.getBillByPhoneNumber(ruleForm.phone).then((res) => {
+                checkNotExistBillAndStatusByPhone.value = res.data.length == 0 || res.data[0].details.status == 4
+                if (checkNotExistBillAndStatusByPhone.value) {
+                    billService.postBill(bill).then((res) => {
+                        if (cash) {
+                            ElMessageBox({
+                                title: 'THÔNG BÁO',
+                                message: h('h4', null, 'Bạn đã đặt hàng thành công!'),
+                                type: 'success'
+                            }).catch((e) => { console.log(e); })
+                        }
+                        id_bill.value = res.data.id
+                        disableButton.value = false
                     })
+                } else {
+                    ElMessage.error('Số điện đã đặt hàng và đơn hàng chưa hoàn tất!')
+                    disableButton.value = false
                 }
-                id_bill.value = res.data.id
             })
         } else {
+            disableButton.value = false
             console.log('error submit!', fields)
         }
     })
@@ -459,12 +503,13 @@ import FooterTop from '@/components/layouts/footer/FooterTop.vue';
 import BreadCrumb from '@/components/shared/BreadCrumb.vue';
 import { Cart } from '@/interface/Cart';
 import store from '@/store/LanguageStore';
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import router from '@/router';
 import { Bill } from '@/interface/Bill';
 import ghnService from '@/service/ghnService'
 import { ReceiveServiceGhn } from '@/interface/ghn/ReceiveServiceGhn';
 import { SendServiceGhn, ItemSend } from '@/interface/ghn/SendServiceGhn';
+import { MainUtils } from '@/utils/MainUtils'
 
 export default defineComponent({
     name: 'CheckoutView',
@@ -605,9 +650,11 @@ export default defineComponent({
     justify-content: space-evenly;
 }
 
-.payment div#pane-second .item1 img,
-.payment div#pane-second .item2 img {
+.payment div#pane-second .item1 button,
+.payment div#pane-second .item2 button {
     cursor: pointer;
+    border: 0px solid;
+    background-color: var(--color-background-home-main);
 }
 
 .delivery {

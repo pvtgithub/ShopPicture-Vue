@@ -6,11 +6,19 @@
                     <img :src="require(`@/assets/tranh_son_dau/${productDetail.image}`)" />
                 </el-carousel-item>
             </el-carousel>
+            <el-button plain @click="zoomPicture = true" style="margin-top: 20px;">
+                Phóng to hình &nbsp; <el-icon><FullScreen /></el-icon>
+            </el-button>
+
+            <el-dialog v-model="zoomPicture" style="max-width: 700px;background-color: transparent; box-shadow: transparent;" width="100%"
+                align-center>
+                <img width="100%" height="100%" :src="require(`@/assets/tranh_son_dau/${productDetail.image}`)" />
+            </el-dialog>
         </el-col>
         <el-col class="item" :xl="10" :sm="24">
             <h2>{{ productDetail.name }}</h2>
             <el-divider></el-divider>
-            <h2 class="price">{{ productDetail.price }}$</h2>
+            <h2 class="price">{{ MainUtils.toCurrency(productDetail.price) }}</h2>
             <p>
                 {{ productDetail.description }}
             </p>
@@ -20,8 +28,9 @@
                 Năm sáng tác: 2024
             </p>
             <div class="button">
-                <el-button type="danger" style="width: 50%">Thêm vào giỏ</el-button>
-                <el-button type="warning" style="width: 70%; margin: 10px 0">Mua ngay</el-button>
+                <el-button type="danger" @click="addToCart(productDetail.id)" :loading="checkLoading"
+                    style="width: 50%">Thêm vào giỏ</el-button>
+                <el-button type="warning" :disabled="checkLoading" style="width: 70%; margin: 10px 0">Mua ngay</el-button>
             </div>
             <div class="detail">
                 <span>Mã: 29114</span>
@@ -56,10 +65,17 @@
         </el-col>
     </el-row>
 </template>
+<script lang="ts" setup>
+import { MainUtils } from '@/utils/MainUtils'
+
+const zoomPicture = ref(false)
+</script>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { Product } from '@/interface/Product'
 import pictureService from '@/service/pictureService'
+import { ElMessage } from 'element-plus'
+import store from '@/store/LanguageStore'
 
 export default defineComponent({
     name: 'ProductDetail',
@@ -73,20 +89,32 @@ export default defineComponent({
                 content: '',
                 price: 1,
                 image: 'tranh3.png',
-                quantity: 1
+                quantity: 1,
             } as Product,
+            checkLoading: false,
+
         }
     },
     methods: {
         async getProductById(id: number) {
             return await pictureService.getPictureById(id);
+        },
+        addToCart(id: number) {
+            this.checkLoading = true;
+            setTimeout(() => {
+                store.dispatch('addToCart', id);
+                ElMessage({
+                    showClose: true,
+                    message: 'Đã thêm sản phẩm vào giỏ hàng.',
+                    type: 'success',
+                })
+                this.checkLoading = false
+            }, 500);
         }
     },
     mounted() {
         this.getProductById(this.productId).then((res) => {
             this.productDetail = res.data;
-            console.log(this.productDetail);
-
         }).catch((e) => {
             console.log(e.message);
         })

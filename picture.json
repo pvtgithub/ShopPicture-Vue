@@ -1,13 +1,31 @@
 {
-  "payment": [],
+  "payment": [
+    {
+      "partnerCode": "MOMOBKUN20180529",
+      "orderId": 862489,
+      "requestId": "81101",
+      "amount": "186719",
+      "orderInfo": "Thanh toán đơn hàng của: Phan Văn Thọ",
+      "orderType": "momo_wallet",
+      "transId": "3994902735",
+      "resultCode": "0",
+      "message": "Successful.",
+      "payType": "napas",
+      "responseTime": "1709277602470",
+      "extraData": "",
+      "signature": "f0391f06dfe713f7e18663c04fba74a1e68b7e7402857b874f44c5bc74f10808",
+      "paymentOption": "momo",
+      "id": 1
+    }
+  ],
   "bills": [
     {
       "customer": {
-        "name": "phanvantho",
-        "address": "114 Bình an7 - Phường Hòa Cường Bắc - Quận Hải Châu - Đà Nẵng",
+        "name": "Phan Văn Thọ",
+        "address": "114 Bình An 7 - Phường Phước Ninh - Quận Hải Châu - Đà Nẵng",
         "phone": "0348485360",
-        "email": "phanvantho@gmail.com",
-        "note": "không có ghi chú gì"
+        "email": "phanvantho@luvina.net",
+        "note": "không có ghi chú"
       },
       "details": {
         "products": [
@@ -16,18 +34,21 @@
             "quanlity": 1
           }
         ],
-        "sum_price": 186719,
-        "cash": false
+        "sum_price": 11200,
+        "delivery_price": 175519,
+        "total_price": 186719,
+        "cash": true,
+        "status": 2
       },
-      "id": 901202
+      "id": 232197
     },
     {
       "customer": {
-        "name": "phanvantho",
-        "address": "114 Bình an7 - Phường Hòa Cường Bắc - Quận Hải Châu - Đà Nẵng",
-        "phone": "0348485360",
-        "email": "phanvantho@gmail.com",
-        "note": "không có ghi chú gì"
+        "name": "Phan Văn Thọ",
+        "address": "114 Bình An 7 - Phường Phước Ninh - Quận Hải Châu - Đà Nẵng",
+        "phone": "0348485361",
+        "email": "phanvantho@luvina.net",
+        "note": "không có ghi chú"
       },
       "details": {
         "products": [
@@ -36,130 +57,44 @@
             "quanlity": 1
           }
         ],
-        "sum_price": 186719,
-        "cash": false
+        "sum_price": 11200,
+        "delivery_price": 175519,
+        "total_price": 186719,
+        "cash": false,
+        "status": 3
       },
-      "id": 126485
+      "id": 862489
     },
     {
       "customer": {
-        "name": "aaa",
-        "address": "1111 - Xã Mễ Sở - Huyện Văn Giang - Hưng Yên",
-        "phone": "1111",
-        "email": "1111",
-        "note": "1111"
+        "name": "sadf",
+        "address": "313 - Thị Trấn Ba Hàng Đồi - Huyện Lạc Thủy - Hòa Bình",
+        "phone": "32111",
+        "email": "321312",
+        "note": "232132131"
       },
       "details": {
         "products": [
+          {
+            "product_id": 7,
+            "quanlity": 1
+          },
+          {
+            "product_id": 5,
+            "quanlity": 1
+          },
           {
             "product_id": 3,
             "quanlity": 1
           }
         ],
-        "sum_price": 1539716,
-        "cash": false
+        "sum_price": 5160000,
+        "delivery_price": 1109696,
+        "total_price": 6269696,
+        "cash": false,
+        "status": 1
       },
-      "id": 207838
-    },
-    {
-      "customer": {
-        "name": "phanvantho",
-        "address": "1212121 - Xã Minh Hoà - Huyện Dầu Tiếng - Bình Dương",
-        "phone": "fffff",
-        "email": "phanvamtho@gmail.com",
-        "note": "ghi chú"
-      },
-      "details": {
-        "products": [
-          {
-            "product_id": 1,
-            "quanlity": 1
-          }
-        ],
-        "sum_price": 395166,
-        "cash": false
-      },
-      "id": 282650
-    },
-    {
-      "customer": {
-        "name": "phanvantho",
-        "address": "1212121 - Xã Minh Hoà - Huyện Dầu Tiếng - Bình Dương",
-        "phone": "fffff",
-        "email": "phanvamtho@gmail.com",
-        "note": "ghi chú"
-      },
-      "details": {
-        "products": [
-          {
-            "product_id": 1,
-            "quanlity": 1
-          }
-        ],
-        "sum_price": 395166,
-        "cash": false
-      },
-      "id": 23583
-    },
-    {
-      "customer": {
-        "name": "phanvantho",
-        "address": "112 ffff - Phường Hòa Cường Bắc - Quận Hải Châu - Đà Nẵng",
-        "phone": "1233331222",
-        "email": "phanvantho@",
-        "note": "ggggggg"
-      },
-      "details": {
-        "products": [
-          {
-            "product_id": 1,
-            "quanlity": 1
-          }
-        ],
-        "sum_price": 186719,
-        "cash": false
-      },
-      "id": 493745
-    },
-    {
-      "customer": {
-        "name": "ffff",
-        "address": "1212 - Xã Tam Đa - Huyện Phù Cừ - Hưng Yên",
-        "phone": "fdfsa",
-        "email": "fdfsd",
-        "note": "fdsfsd"
-      },
-      "details": {
-        "products": [
-          {
-            "product_id": 1,
-            "quanlity": 1
-          }
-        ],
-        "sum_price": 395166,
-        "cash": false
-      },
-      "id": 962959
-    },
-    {
-      "customer": {
-        "name": "Phan Văn Thọ",
-        "address": "12121 - Xã Đắk Ruồng - Huyện Kon Rẫy - Kon Tum",
-        "phone": "2121",
-        "email": "2121",
-        "note": "21212"
-      },
-      "details": {
-        "products": [
-          {
-            "product_id": 1,
-            "quanlity": 1
-          }
-        ],
-        "sum_price": 395166,
-        "cash": false
-      },
-      "id": 604210
+      "id": 572267
     }
   ],
   "imagesVi": [

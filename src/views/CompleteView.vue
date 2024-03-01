@@ -36,6 +36,7 @@ import { ArrowRight } from '@element-plus/icons-vue';
 import { defineComponent } from 'vue'
 import FooterMain from '@/components/layouts/footer/FooterMain.vue';
 import FooterTop from '@/components/layouts/footer/FooterTop.vue';
+import billService from '@/service/billService';
 export default defineComponent({
     name: 'CompleteView',
     components: {
@@ -65,13 +66,19 @@ export default defineComponent({
         }
     },
     mounted() {
-        this.queryParam = this.$route.query 
+        this.queryParam = this.$route.query
         this.message = this.queryParam.message
         this.urlImage = this.queryParam.resultCode == 0 ? "complete.png" : "error.png"
-        console.log(this.queryParam);
-        
-        if(!this.queryParam.message){
+        this.queryParam.orderId = parseInt(this.queryParam.orderId)
+
+        if (!this.queryParam.message) {
             this.$router.push('/')
+        } else {
+            billService.getPaymentByOrderId(this.queryParam.orderId).then((res) => {
+                if (res.data.length == 0) {
+                    billService.postPayment(this.queryParam)
+                }
+            })
         }
     },
     methods: {

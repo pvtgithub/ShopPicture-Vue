@@ -114,6 +114,7 @@ export default defineComponent({
             languageValue: 1
         }
     },
+    emits: ["darkMode"],
     methods: {
         navigate(url: string) {
             const loading = ElLoading.service({

@@ -34,14 +34,14 @@
                         <span class="text_item">{{ item.quantity }}</span>
                     </el-col>
                     <el-col :span="5">
-                        <span class="text_item">{{ item.price * item.quantity }}</span>
+                        <span class="text_item">{{ MainUtils.toCurrency(item.price * item.quantity) }}</span>
                     </el-col>
                 </el-row>
             </template>
 
             <el-divider style="margin: 0"></el-divider>
             <div class="cart_footer">
-                <h3>Tổng tiền: {{ cart.sumPrice }}$</h3>
+                <h3>Tổng tiền: {{ MainUtils.toCurrency(cart.sumPrice) }}</h3>
                 <el-button @click="closeCart()" type="danger">Đóng</el-button>
                 <el-button type="primary" @click="goCheckout()">Thanh toán</el-button>
             </div>
@@ -60,6 +60,7 @@ import { defineComponent } from 'vue'
 import store from '@/store/LanguageStore'
 import { Cart } from '@/interface/Cart'
 import { ElMessage } from 'element-plus'
+import { MainUtils } from '@/utils/MainUtils'
 
 export default defineComponent({
     name: "CartComponent",

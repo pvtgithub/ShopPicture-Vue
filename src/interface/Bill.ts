@@ -16,7 +16,10 @@ export interface Bill {
     details: {
         products: Product[],
         sum_price: number,
-        cash : boolean
+        delivery_price: number,
+        total_price : number,
+        cash : boolean,
+        status: number
     }
 
 }
