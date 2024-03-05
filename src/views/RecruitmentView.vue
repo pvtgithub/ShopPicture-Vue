@@ -1,7 +1,7 @@
 <template>
     <el-row class="home__row__container recruit_container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <h2>Mô tả công việc</h2>
             <h3>Cửa hàng Khung & Tranh của chúng tôi đang cần tuyển 2 họa sĩ vẽ tranh sơn dầu</h3>
             <p>
@@ -45,21 +45,21 @@
                 – Lương: Thỏa thuận
             </p>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container recruit_container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <FooterTop />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container recruit_container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <FooterMain />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
 </template>
 <script lang="ts">

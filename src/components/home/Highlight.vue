@@ -3,7 +3,7 @@
         <span>{{ textTitle }}</span>
     </el-divider>
     <el-row>
-        <el-col :lg="6" :md="8" :sm="12" :xs="24" v-for="item in products" :key="(item as any).id"
+        <el-col :xl="6" :lg="8" :md="8" :sm="12" :xs="24" v-for="item in products" :key="(item as any).id"
             class="home__highlight__item">
             <el-card :body-style="{ padding: '0px' }" @click="productDetail((item as any).id)">
                 <img style="width: 100% ; height: 250px"  :src="require('@/assets/tranh_son_dau/'+(item as any).image)" class="image" />
@@ -68,8 +68,8 @@ export default defineComponent({
                 this.textPrice = "価格";
             }
         },
-        async getAllPicture(language: number) {
-            const { data } = await pictureService.getAll(language);
+        async getPictureHighlight(language: number) {
+            const { data } = await pictureService.getPictureHighlight(language);
             this.products = data;
         },
         addToCart(id: number) {
@@ -100,9 +100,9 @@ export default defineComponent({
         store.watch(state => state.language, newValue => {
             this.languageValue = newValue;
             this.changeLanguage();
-            this.getAllPicture(this.languageValue);
+            this.getPictureHighlight(this.languageValue);
         });
-        this.getAllPicture(this.languageValue);
+        this.getPictureHighlight(this.languageValue);
     },
 })
 </script>

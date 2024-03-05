@@ -7,10 +7,13 @@
                 </el-carousel-item>
             </el-carousel>
             <el-button plain @click="zoomPicture = true" style="margin-top: 20px;">
-                Phóng to hình &nbsp; <el-icon><FullScreen /></el-icon>
+                Phóng to hình &nbsp; <el-icon>
+                    <FullScreen />
+                </el-icon>
             </el-button>
 
-            <el-dialog v-model="zoomPicture" style="max-width: 700px;background-color: transparent; box-shadow: transparent;" width="100%"
+            <el-dialog v-model="zoomPicture"
+                style="max-width: 700px;background-color: transparent;" width="100%"
                 align-center>
                 <img width="100%" height="100%" :src="require(`@/assets/tranh_son_dau/${productDetail.image}`)" />
             </el-dialog>
@@ -30,12 +33,13 @@
             <div class="button">
                 <el-button type="danger" @click="addToCart(productDetail.id)" :loading="checkLoading"
                     style="width: 50%">Thêm vào giỏ</el-button>
-                <el-button type="warning" :disabled="checkLoading" style="width: 70%; margin: 10px 0">Mua ngay</el-button>
+                <el-button type="warning" :disabled="checkLoading" style="width: 70%; margin: 10px 0">Mua
+                    ngay</el-button>
             </div>
             <div class="detail">
-                <span>Mã: 29114</span>
+                <span>Mã: {{ productDetail.id }}</span>
                 <el-divider border-style="dotted" />
-                <span>Số lượt xem: 17</span>
+                <span>Số lượt xem: {{ productDetail.view }}</span>
                 <el-divider border-style="dotted" />
                 <span>Danh mục: Tranh Phong Cảnh Đồng Quê</span>
                 <el-divider border-style="dotted" />
@@ -65,11 +69,13 @@
         </el-col>
     </el-row>
 </template>
+
 <script lang="ts" setup>
 import { MainUtils } from '@/utils/MainUtils'
 
 const zoomPicture = ref(false)
 </script>
+
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { Product } from '@/interface/Product'
@@ -90,10 +96,21 @@ export default defineComponent({
                 price: 1,
                 image: 'tranh3.png',
                 quantity: 1,
+                category_id: 1,
+                highlight: 1,
+                view: 12,
+                star: 4.5
             } as Product,
             checkLoading: false,
 
         }
+    },
+    updated() {
+        this.getProductById(this.productId).then((res) => {
+            this.productDetail = res.data;
+        }).catch((e) => {
+            console.log(e.message);
+        })
     },
     methods: {
         async getProductById(id: number) {
@@ -122,6 +139,7 @@ export default defineComponent({
     },
 })
 </script>
+
 <style lang="css">
 .home__row__container {
     margin-top: 30px;
@@ -167,5 +185,8 @@ export default defineComponent({
 
 .product__detail .el-divider--horizontal {
     margin: 10px 0;
+}
+.product__detail .el-dialog_body{
+    box-shadow: transparent !important;
 }
 </style>

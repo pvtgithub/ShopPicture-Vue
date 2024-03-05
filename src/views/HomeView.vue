@@ -1,38 +1,38 @@
 <template>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <BannerComponent />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <HomeIntroduct />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <HomeHighlight />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <FooterTop />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <FooterMain />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
 </template>
 

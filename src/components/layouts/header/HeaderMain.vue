@@ -1,4 +1,4 @@
-<template >
+<template>
     <div>
         <el-row class="header__main__container">
             <el-col :lg="4" :md="4"></el-col>
@@ -6,22 +6,35 @@
                 <img class="header__main__logo" src="../../../../public/images/logo.png" />
             </el-col>
             <el-col :lg="9" :xs="24" :md="11" class="header__main__center">
-                <el-input v-model="searchValue" :placeholder="placeholderInput" class="input-with-select">
-                    <template #prepend>
-                        <el-select v-model="selectValue" :placeholder="placeholderSelect" style="width: 115px">
-                            <el-option label="Tranh sơn dầu" value="1" />
-                            <el-option label="Tranh phong cảnh" value="2" />
-                            <el-option label="Tranh nghệ thuật" value="3" />
-                        </el-select>
+                <el-select v-model="selectValue" :placeholder="placeholderSelect" style="width: 115px">
+                    <el-option label="--- Tất cả ---" value="0" />
+                    <el-option label="Tranh sơn dầu" value="1" />
+                    <el-option label="Tranh phong cảnh" value="2" />
+                    <el-option label="Tranh nghệ thuật" value="3" />
+                    <el-option label="Tranh trừu tượng" value="4" />
+                    <el-option label="Tranh sơn mài" value="5" />
+                    <el-option label="Khung tranh" value="6" />
+                </el-select>
+                <el-autocomplete :placeholder="placeholderInput" v-model="searchValue" @keyup.enter="searchDetail"
+                    :fetch-suggestions="changeSearchInput" @select="handleSelect" style="max-width: 450px; width: 90%;">
+                    <template #default="{ item }">
+                        <div class="item__search">
+                            <img width="50" height="50" :src="require(`@/assets/tranh_son_dau/${item.image}`)"
+                                :alt="item.name">
+                            <div>
+                                <span>{{ item.name }}</span>
+                                <span>{{ MainUtils.toCurrency(item.price) }}</span>
+                            </div>
+                        </div>
+                        <el-divider style="margin: 3px 0;"></el-divider>
                     </template>
-                    <template #append>
-                        <el-button>
-                            <el-icon>
-                                <Search />
-                            </el-icon>
-                        </el-button>
-                    </template>
-                </el-input>
+                </el-autocomplete>
+
+                <el-button @click="searchDetail">
+                    <el-icon>
+                        <Search />
+                    </el-icon>
+                </el-button>
             </el-col>
             <el-col :lg="4" :xs="24" :md="24" class="header__main__center">
                 <el-badge :value="12" class="item header__main__hobby">
@@ -46,11 +59,26 @@
         </el-row>
     </div>
 </template>
+
+<script lang="ts" setup>
+interface ItemResult {
+    image: string,
+    title: string,
+    price: number,
+    link: string
+}
+</script>
+
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 import store from '@/store/LanguageStore'
 import Cart from '@/components/header/Cart.vue'
+import pictureService from '@/service/pictureService'
+import { MainUtils } from '@/utils/MainUtils'
+import { Product } from '@/interface/Product'
+import router from '@/router/index'
+
 export default defineComponent({
     name: "HeaderMain",
     components: {
@@ -66,10 +94,46 @@ export default defineComponent({
             textCart: "",
             languageValue: 1,
             searchValue: "",
-            selectValue: "",
+            selectValue: "0",
+            time: 0,
+            timeOut: 1000,
+            resultSearch: [] as Product[]
         }
     },
     methods: {
+        searchDetail() {
+            const dataSearch = {
+                name: this.searchValue,
+                category: this.selectValue,
+                page: 1,
+                limit: 6
+            }
+            router.push(`/search?name=${dataSearch.name}&category=${dataSearch.category}&page=${dataSearch.page}&limit=${dataSearch.limit}`)
+        },
+        handleSelect(product: Product) {
+            router.push(`/detail/${product.id}`)
+        },
+        changeSearchInput(queryString: string, cb) {
+            if (queryString.length == 0) {
+                this.resultSearch = []
+                cb(this.resultSearch)
+            } else {
+                const dataSearch = {
+                    name: queryString,
+                    category: this.selectValue,
+                    page: 1,
+                    limit: 20
+                }
+
+                clearTimeout(this.time)
+                this.time = setTimeout(() => {
+                    pictureService.filterAndSearchPicture(2, dataSearch).then((res) => {
+                        this.resultSearch = res.data
+                        cb(this.resultSearch)
+                    })
+                }, this.timeOut);
+            }
+        },
         displayCart() {
             this.cartDisplay = !this.cartDisplay
         },
@@ -129,6 +193,7 @@ export default defineComponent({
     }
 })
 </script>
+
 <style lang="css">
 .header__main__container {
     background-color: var(--color-background-header-main);
@@ -166,7 +231,26 @@ export default defineComponent({
     width: 350px;
     z-index: 100;
 }
-.header__main__hobby .el-icon{
+
+.header__main__hobby .el-icon {
     margin-left: 5px;
+}
+
+.item__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.item__search div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.el-col.el-col-24.el-col-xs-24.el-col-md-24.el-col-lg-4.header__main__center {
+    padding: 10px;
 }
 </style>

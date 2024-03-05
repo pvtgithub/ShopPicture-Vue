@@ -1,6 +1,7 @@
 import axios from 'axios'
+import ConstVariable from '../../const'
 
-const urlDomain = "http://10.1.1.119:3000"
+const urlDomain = ConstVariable.BASE_API
 const urlBase = `${urlDomain}`
 const token = ""
 

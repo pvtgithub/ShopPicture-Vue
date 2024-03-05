@@ -1,7 +1,7 @@
 <template>
     <el-row class="header__intruction__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <nav class="header__intruction__element__ul__menu">
                 <template v-if="languageValue == 1">
                     <router-link v-for="item in listLinkVi" :key="item.id" :to="item.link" class="item">{{
@@ -46,7 +46,7 @@
                 <BillDetailView/>
             </nav>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
 </template>
 <script lang="ts">

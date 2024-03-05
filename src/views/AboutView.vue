@@ -1,10 +1,10 @@
 <template>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16" class="about_container">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16" class="about_container">
       <h1>Về Bán Tranh – Tranh Phong Cảnh, Tranh Sơn Dầu, Tranh Nghệ Thuật & Khung Tranh Đẹp</h1>
       <el-row>
-        <el-col :span="16">
+        <el-col :xs="22" :sm="16">
           <p>Kính chào quý khách, lời đầu tiên chúng tôi xin chân thành cảm ơn quý khách đã tín nhiệm và ủng chúng tôi
             trong suốt thời gian chúng tôi xây dựng và phát triển cửa hàng Khung & Tranh Mộc Sinh. Trong những năm gần đây
             nhu cầu sử dụng tranh để trang trí cho các phòng trong gia đình, nhà hàng, khách sạn, thậm chí là những bức
@@ -64,21 +64,21 @@
         </el-col>
       </el-row>
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <FooterTop />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
   <el-row class="home__row__container">
-    <el-col :span="4"></el-col>
-    <el-col :span="16">
+    <el-col :xs="1" :sm="4"></el-col>
+    <el-col :xs="22" :sm="16">
       <FooterMain />
     </el-col>
-    <el-col :span="4"></el-col>
+    <el-col :xs="1" :sm="4"></el-col>
   </el-row>
 </template>
 <script lang="ts">

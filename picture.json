@@ -95,6 +95,191 @@
         "status": 1
       },
       "id": 572267
+    },
+    {
+      "customer": {
+        "name": "Phan Văn Thọ",
+        "address": "112 ffff - Phường Mân Thái - Quận Sơn Trà - Đà Nẵng",
+        "phone": "0348485362",
+        "email": "phanvantho@luvina.net",
+        "note": "ghi chú"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 11200,
+        "delivery_price": 175519,
+        "total_price": 186719,
+        "cash": false,
+        "status": 1
+      },
+      "id": 386179
+    },
+    {
+      "customer": {
+        "name": "Phan Văn Thọ",
+        "address": "112 ffff - Phường Mân Thái - Quận Sơn Trà - Đà Nẵng",
+        "phone": "0348485364",
+        "email": "phanvantho@luvina.net",
+        "note": "ghi chú"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 11200,
+        "delivery_price": 175519,
+        "total_price": 186719,
+        "cash": false,
+        "status": 1
+      },
+      "id": 329942
+    },
+    {
+      "customer": {
+        "name": "Phan Văn Thọ",
+        "address": "112 ffff - Phường Mân Thái - Quận Sơn Trà - Đà Nẵng",
+        "phone": "0348485365",
+        "email": "phanvantho@luvina.net",
+        "note": "ghi chú"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 11200,
+        "delivery_price": 175519,
+        "total_price": 186719,
+        "cash": true,
+        "status": 1
+      },
+      "id": 769648
+    },
+    {
+      "customer": {
+        "name": "gggg",
+        "address": "2131 - Xã Lương Tài - Huyện Văn Lâm - Hưng Yên",
+        "phone": "121212",
+        "email": " fffff",
+        "note": "ffff"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 1,
+            "quanlity": 1
+          }
+        ],
+        "sum_price": 11200,
+        "delivery_price": 383966,
+        "total_price": 395166,
+        "cash": true,
+        "status": 1
+      },
+      "id": 604165
+    },
+    {
+      "customer": {
+        "name": "dsadas",
+        "address": "dâdas - Xã Trưng Trắc - Huyện Văn Lâm - Hưng Yên",
+        "phone": "dâdas",
+        "email": "đâ",
+        "note": "dsadas"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 4,
+            "quanlity": 1
+          },
+          {
+            "product_id": 5,
+            "quanlity": 1
+          },
+          {
+            "product_id": 6,
+            "quanlity": 3
+          }
+        ],
+        "sum_price": 11370000,
+        "delivery_price": 1140746,
+        "total_price": 12510746,
+        "cash": true,
+        "status": 1
+      },
+      "id": 441760
+    },
+    {
+      "customer": {
+        "name": "đáádasdasdasd",
+        "address": "ádssssssssssssss - Xã Nậm Chảy - Huyện Mường Khương - Lào Cai",
+        "phone": "333333333333333333333",
+        "email": "3333333333",
+        "note": "333333333"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 4,
+            "quanlity": 1
+          },
+          {
+            "product_id": 5,
+            "quanlity": 1
+          },
+          {
+            "product_id": 6,
+            "quanlity": 3
+          }
+        ],
+        "sum_price": 11370000,
+        "delivery_price": 1140746,
+        "total_price": 12510746,
+        "cash": false,
+        "status": 1
+      },
+      "id": 504145
+    },
+    {
+      "customer": {
+        "name": "đáádasdasdasd",
+        "address": "ádssssssssssssss - Xã Nậm Chảy - Huyện Mường Khương - Lào Cai",
+        "phone": "0971888261",
+        "email": "tho-con@gmail.com",
+        "note": "shiper không hãm loz"
+      },
+      "details": {
+        "products": [
+          {
+            "product_id": 4,
+            "quanlity": 1
+          },
+          {
+            "product_id": 5,
+            "quanlity": 1
+          },
+          {
+            "product_id": 6,
+            "quanlity": 3
+          }
+        ],
+        "sum_price": 11370000,
+        "delivery_price": 1140746,
+        "total_price": 12510746,
+        "cash": false,
+        "status": 1
+      },
+      "id": 741287
     }
   ],
   "imagesVi": [
@@ -104,7 +289,11 @@
       "description": "Mô tả hình ảnh 1",
       "content": "Nội dung hình ảnh 1",
       "price": 11200,
-      "image": "tranh1.png"
+      "image": "tranh1.png",
+      "category_id": 1,
+      "highlight": 1,
+      "view": 12,
+      "star": 4.5
     },
     {
       "id": 2,
@@ -112,7 +301,11 @@
       "description": "Mô tả hình ảnh 2",
       "content": "Nội dung hình ảnh 2",
       "price": 2120000,
-      "image": "tranh2.png"
+      "image": "tranh2.png",
+      "category_id": 1,
+      "highlight": 1,
+      "view": 13,
+      "star": 5
     },
     {
       "id": 3,
@@ -120,7 +313,11 @@
       "description": "Mô tả hình ảnh 3",
       "content": "Nội dung hình ảnh 3",
       "price": 1150000,
-      "image": "tranh3.png"
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 19,
+      "star": 4.7
     },
     {
       "id": 4,
@@ -128,7 +325,11 @@
       "description": "Mô tả hình ảnh 4",
       "content": "Nội dung hình ảnh 4",
       "price": 1550000,
-      "image": "tranh4.png"
+      "image": "tranh4.png",
+      "category_id": 6,
+      "highlight": 1,
+      "view": 12,
+      "star": 4.5
     },
     {
       "id": 5,
@@ -136,7 +337,11 @@
       "description": "Mô tả hình ảnh 5",
       "content": "Nội dung hình ảnh 5",
       "price": 1855000,
-      "image": "tranh5.png"
+      "image": "tranh5.png",
+      "category_id": 1,
+      "highlight": 1,
+      "view": 21,
+      "star": 4.6
     },
     {
       "id": 6,
@@ -144,7 +349,11 @@
       "description": "Mô tả hình ảnh 6",
       "content": "Nội dung hình ảnh 6",
       "price": 2655000,
-      "image": "tranh6.png"
+      "image": "tranh6.png",
+      "category_id": 5,
+      "highlight": 1,
+      "view": 29,
+      "star": 4.9
     },
     {
       "id": 7,
@@ -152,7 +361,203 @@
       "description": "Mô tả hình ảnh 7",
       "content": "Nội dung hình ảnh 7",
       "price": 2155000,
-      "image": "tranh3.png"
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 41,
+      "star": 5
+    },
+    {
+      "id": 8,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 36,
+      "star": 5
+    },
+    {
+      "id": 9,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 21,
+      "star": 4.9
+    },
+    {
+      "id": 10,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 200,
+      "star": 4.6
+    },
+    {
+      "id": 11,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 255,
+      "star": 4.3
+    },
+    {
+      "id": 12,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 32,
+      "star": 4.6
+    },
+    {
+      "id": 13,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 26,
+      "star": 4.9
+    },
+    {
+      "id": 14,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 23,
+      "star": 4.3
+    },
+    {
+      "id": 15,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 27,
+      "star": 4.4
+    },
+    {
+      "id": 16,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 28,
+      "star": 4.6
+    },
+    {
+      "id": 17,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 201,
+      "star": 4.2
+    },
+    {
+      "id": 18,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 210,
+      "star": 4
+    },
+    {
+      "id": 19,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 20,
+      "star": 4.7
+    },
+    {
+      "id": 20,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 21,
+      "star": 4.6
+    },
+    {
+      "id": 21,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 21,
+      "star": 4.6
+    },
+    {
+      "id": 22,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 21,
+      "star": 4.6
+    },
+    {
+      "id": 23,
+      "name": "Hình ảnh 7",
+      "description": "Mô tả hình ảnh 7",
+      "content": "Nội dung hình ảnh 7",
+      "price": 2155000,
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0,
+      "view": 21,
+      "star": 4.6
     }
   ],
   "imagesEn": [
@@ -162,7 +567,9 @@
       "description": "Picture Description 1",
       "content": "Picture Content 1",
       "price": 1120000,
-      "image": "tranh1.png"
+      "image": "tranh1.png",
+      "category_id": 1,
+      "highlight": 1
     },
     {
       "id": 2,
@@ -170,7 +577,9 @@
       "description": "Picture Description 2",
       "content": "Picture Content 2",
       "price": 2120000,
-      "image": "tranh2.png"
+      "image": "tranh2.png",
+      "category_id": 1,
+      "highlight": 1
     },
     {
       "id": 3,
@@ -178,7 +587,9 @@
       "description": "Picture Description 3",
       "content": "Picture Content 3",
       "price": 1150000,
-      "image": "tranh3.png"
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0
     },
     {
       "id": 4,
@@ -186,7 +597,9 @@
       "description": "Picture Description 4",
       "content": "Picture Content 4",
       "price": 1550000,
-      "image": "tranh4.png"
+      "image": "tranh4.png",
+      "category_id": 6,
+      "highlight": 1
     },
     {
       "id": 5,
@@ -194,7 +607,9 @@
       "description": "Picture Description 5",
       "content": "Picture Content 5",
       "price": 1855000,
-      "image": "tranh5.png"
+      "image": "tranh5.png",
+      "category_id": 1,
+      "highlight": 1
     },
     {
       "id": 6,
@@ -202,7 +617,9 @@
       "description": "Picture Description 6",
       "content": "Picture Content 6",
       "price": 2655000,
-      "image": "tranh6.png"
+      "image": "tranh6.png",
+      "category_id": 5,
+      "highlight": 1
     },
     {
       "id": 7,
@@ -210,7 +627,9 @@
       "description": "Picture Description 7",
       "content": "Picture Content 7",
       "price": 2155000,
-      "image": "tranh3.png"
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0
     }
   ],
   "imagesJp": [
@@ -220,7 +639,9 @@
       "description": "画像の説明 1",
       "content": "画像コンテンツ 1",
       "price": 1120000,
-      "image": "tranh1.png"
+      "image": "tranh1.png",
+      "category_id": 1,
+      "highlight": 1
     },
     {
       "id": 2,
@@ -228,7 +649,9 @@
       "description": "画像の説明 2",
       "content": "画像コンテンツ 2",
       "price": 2120000,
-      "image": "tranh2.png"
+      "image": "tranh2.png",
+      "category_id": 1,
+      "highlight": 1
     },
     {
       "id": 3,
@@ -236,7 +659,9 @@
       "description": "画像の説明 3",
       "content": "画像コンテンツ 3",
       "price": 1150000,
-      "image": "tranh3.png"
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0
     },
     {
       "id": 4,
@@ -244,7 +669,9 @@
       "description": "画像の説明 4",
       "content": "画像コンテンツ 4",
       "price": 1550000,
-      "image": "tranh4.png"
+      "image": "tranh4.png",
+      "category_id": 6,
+      "highlight": 1
     },
     {
       "id": 5,
@@ -252,7 +679,9 @@
       "description": "画像の説明 5",
       "content": "画像コンテンツ 5",
       "price": 1855000,
-      "image": "tranh5.png"
+      "image": "tranh5.png",
+      "category_id": 1,
+      "highlight": 1
     },
     {
       "id": 6,
@@ -260,7 +689,9 @@
       "description": "画像の説明 6",
       "content": "画像コンテンツ 6",
       "price": 2655000,
-      "image": "tranh6.png"
+      "image": "tranh6.png",
+      "category_id": 5,
+      "highlight": 1
     },
     {
       "id": 7,
@@ -268,7 +699,9 @@
       "description": "画像の説明 7",
       "content": "画像コンテンツ 7",
       "price": 2155000,
-      "image": "tranh3.png"
+      "image": "tranh3.png",
+      "category_id": 3,
+      "highlight": 0
     }
   ]
 }

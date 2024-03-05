@@ -1,7 +1,7 @@
 <template >
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <el-row>
                 <el-col :xl="12" class="contact_item">
                     <h2>Các câu hỏi thường gặp</h2>
@@ -124,21 +124,21 @@
                 </el-col>
             </el-row>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <FooterTop />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <FooterMain />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
 </template>
 <script lang="ts" setup>

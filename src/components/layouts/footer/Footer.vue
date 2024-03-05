@@ -112,4 +112,7 @@ export default defineComponent({
 .footer__row a:not(:last-child) {
     margin-right: 10px
 }
+.footer__row a.item {
+    display: inline-block;
+}
 </style>

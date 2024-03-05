@@ -2,8 +2,9 @@
     <el-button plain @click="outerVisible = true">
         Kiểm tra đơn hàng
     </el-button>
-    <el-dialog v-model="outerVisible" title="Thông tin chi tiết đơn hàng" :style="`max-width: ${widthDialog}`" width="90%" class="bill_detail">
-       
+    <el-dialog v-model="outerVisible" title="Thông tin chi tiết đơn hàng" :style="`max-width: ${widthDialog}`"
+        width="90%" class="bill_detail">
+
         <el-form v-if="!displayDetailBill" :model="form" class="form_detail_bill">
             <el-form-item>
                 <el-input v-model="form.phone" autocomplete="off" placeholder="Nhập số điện thoại đặt hàng..."
@@ -55,7 +56,7 @@
                         <p><strong>Thời gian đặt hàng: </strong> {{ payment_detail_info.responseTime }}</p>
                         <p><strong>Kết quả thanh toán: </strong> {{ payment_detail_info.message }}</p>
                         <p><strong>Tổng tiền đã thanh toán: </strong> {{
-                            MainUtils.toCurrency(parseInt(payment_detail_info.amount)) }}
+        MainUtils.toCurrency(parseInt(payment_detail_info.amount)) }}
                         </p>
                     </div>
                 </div>
@@ -72,7 +73,8 @@
             <el-divider></el-divider>
             <div class="price_bill_detail">
                 <p><strong>Tổng tạm tính: </strong> {{ MainUtils.toCurrency(bill_detail_info.details.sum_price) }} </p>
-                <p><strong>Phí vận chuyển: </strong>{{ MainUtils.toCurrency(bill_detail_info.details.delivery_price) }} </p>
+                <p><strong>Phí vận chuyển: </strong>{{ MainUtils.toCurrency(bill_detail_info.details.delivery_price) }}
+                </p>
                 <p><strong>Thành tiền: </strong>{{ MainUtils.toCurrency(bill_detail_info.details.total_price) }} </p>
             </div>
             <el-divider></el-divider>
@@ -82,9 +84,12 @@
         </template>
     </el-dialog>
 </template>
+
 <script lang="ts" setup>
 import { MainUtils } from '@/utils/MainUtils'
+
 </script>
+
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
 import billService from '@/service/billService'
@@ -113,6 +118,19 @@ export default defineComponent({
         }
     },
     methods: {
+        timeToDateTimeFormat(timestampInMilliseconds: number) {
+            const timestampInSeconds = timestampInMilliseconds / 1000;
+            const dateObject = new Date(timestampInSeconds * 1000);
+            const year = dateObject.getFullYear();
+            const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObject.getDate()).padStart(2, '0');
+            const hours = String(dateObject.getHours()).padStart(2, '0');
+            const minutes = String(dateObject.getMinutes()).padStart(2, '0');
+            const seconds = String(dateObject.getSeconds()).padStart(2, '0');
+
+            const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            return formattedDate;
+        },
         resetAllVariable() {
             this.outerVisible = false
             this.cashPayment = false
@@ -150,10 +168,10 @@ export default defineComponent({
                             billService.getPaymentByOrderId(this.bill_detail_info.id).then((res) => {
                                 if (res.data.length > 0) {
                                     this.payment_detail_info = res.data[0]
-                                    this.payment_detail_info.responseTime = MainUtils.timeToDateTimeFormat(parseInt(this.payment_detail_info.responseTime))
+                                    this.payment_detail_info.responseTime = this.timeToDateTimeFormat(parseInt(this.payment_detail_info.responseTime))
                                     this.widthDialog = '900px'
                                     this.displayDetailBill = true
-                                }else{
+                                } else {
                                     this.widthDialog = '500px'
                                     this.listProduct = []
                                     ElMessage.error('Đơn hàng chưa được thanh toán')
@@ -178,6 +196,7 @@ export default defineComponent({
     }
 })
 </script>
+
 <style lang="css">
 .home__row__container {
     background-color: var(--color-background-home-main);

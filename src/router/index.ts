@@ -9,6 +9,7 @@ import ProductDetailView from '../views/ProductDetailView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
 import CompleteView from '../views/CompleteView.vue'
 import BillDetailView from '../views/BillDetailView.vue'
+import SearchView from '../views/SearchView.vue'
 import { ElLoading } from 'element-plus'
 import test from '../views/test.vue'
 
@@ -53,6 +54,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/bill-detail',
     name: 'BillDetail',
     component: BillDetailView
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: SearchView
   },
   {
     path: '/detail/:productId',

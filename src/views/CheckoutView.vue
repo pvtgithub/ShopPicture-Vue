@@ -1,14 +1,14 @@
 <template>
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <BreadCrumb :listBreadCrumb="breadCrumb" />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <el-breadcrumb class="timeline__checkout" :separator-icon="ArrowRight" style="padding: 10px; font-size: 16px;">
                 <el-breadcrumb-item>SHOPPING CART</el-breadcrumb-item>
                 <el-breadcrumb-item style="font-weight: bold;">CHECKOUT DETAILS</el-breadcrumb-item>
@@ -150,21 +150,21 @@
             </el-row>
 
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <FooterTop />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
     <el-row class="home__row__container">
-        <el-col :span="4"></el-col>
-        <el-col :span="16">
+        <el-col :xs="1" :sm="4"></el-col>
+        <el-col :xs="22" :sm="16">
             <FooterMain />
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :xs="1" :sm="4"></el-col>
     </el-row>
 </template>
 <script lang="ts" setup>
@@ -466,7 +466,14 @@ const deliveryComputed = () => {
             receiveService = res.data
             deliveryPrice.value = receiveService.data.total
 
-        }).catch((e) => { console.log(e) })
+        }).catch((e) => { 
+            deliveryPrice.value = 0
+            ElMessage({
+                showClose: true,
+                message: e.response.data.code_message_value,
+                type: 'error',
+            })
+         })
     } else {
         deliveryPrice.value = 0
         return
@@ -603,7 +610,7 @@ export default defineComponent({
 }
 
 .detail__bill {
-    padding: 25px;
+    padding: 2%;
     border: 2px solid orange;
     text-align: left;
 }
@@ -655,6 +662,7 @@ export default defineComponent({
     cursor: pointer;
     border: 0px solid;
     background-color: var(--color-background-home-main);
+    height: 110px;
 }
 
 .delivery {
