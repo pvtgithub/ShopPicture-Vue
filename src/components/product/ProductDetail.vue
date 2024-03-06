@@ -6,14 +6,15 @@
                     <img :src="require(`@/assets/tranh_son_dau/${productDetail.image}`)" />
                 </el-carousel-item>
             </el-carousel>
+
+            <TryOnWall></TryOnWall>
             <el-button plain @click="zoomPicture = true" style="margin-top: 20px;">
                 Phóng to hình &nbsp; <el-icon>
                     <FullScreen />
                 </el-icon>
             </el-button>
 
-            <el-dialog v-model="zoomPicture"
-                style="max-width: 700px;background-color: transparent;" width="100%"
+            <el-dialog v-model="zoomPicture" style="max-width: 700px;background-color: transparent;" width="100%"
                 align-center>
                 <img width="100%" height="100%" :src="require(`@/assets/tranh_son_dau/${productDetail.image}`)" />
             </el-dialog>
@@ -82,9 +83,11 @@ import { Product } from '@/interface/Product'
 import pictureService from '@/service/pictureService'
 import { ElMessage } from 'element-plus'
 import store from '@/store/LanguageStore'
+import TryOnWall from '@/components/shared/TryOnWall.vue'
 
 export default defineComponent({
     name: 'ProductDetail',
+    components: { TryOnWall },
     props: ['productId'],
     data() {
         return {
@@ -186,7 +189,12 @@ export default defineComponent({
 .product__detail .el-divider--horizontal {
     margin: 10px 0;
 }
-.product__detail .el-dialog_body{
+
+.product__detail .el-dialog_body {
     box-shadow: transparent !important;
+}
+
+.product__detail .try__onwall{
+    margin: 20px 10px 0 0;
 }
 </style>
